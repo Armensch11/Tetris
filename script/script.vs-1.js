@@ -66,6 +66,7 @@ let start = document.createElement('div');
 start.setAttribute('id', 'start');
 startPos.appendChild(start);
 start = document.getElementById('start');
+start.innerHTML = 'start';
 start.addEventListener('click', () => entryPoint());
 const stopPos = document.getElementById('stop-place');
 let stop = document.createElement('div');
