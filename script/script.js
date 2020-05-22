@@ -2,10 +2,16 @@ let colConst;
 let rowConst;
 const startPos = document.getElementById('start-place');
 let start = document.createElement('div');
-start.setAttribute('id', 'start-stop');
+start.setAttribute('id', 'start');
 startPos.appendChild(start);
-start = document.getElementById('start-stop');
-start.addEventListener('click', oneDown);
+start = document.getElementById('start');
+start.addEventListener('click', () => oneDown());
+const stopPos = document.getElementById('stop-place');
+let stop = document.createElement('div');
+stop.setAttribute('id', 'stop');
+stopPos.appendChild(stop);
+stop = document.getElementById('stop');
+stop.addEventListener('click', clearCells);
 const arena = document.getElementById('game-arena');
 for (let i = 1; i <= 10; i++) {
 	rowConst = document.createElement('div');
@@ -31,7 +37,7 @@ function entryPoint(randomCell = Math.floor(Math.random() * 11)) {
 }
 // entryPoint(5);
 
-function oneDown(delay = 1500) {
+function oneDown(delay = 1000) {
 	let stepDown = document.querySelectorAll('[data-x="3"]');
 	// stepDown = Array.from(stepDown).forEach((el) => (el.style.backgroundColor = 'yellow'));
 	for (let cell of stepDown) {
@@ -53,7 +59,7 @@ function oneDown(delay = 1500) {
 
 			// cell.style.removeProperty('backgroundColor');
 		}, 300 + delay);
-		delay += 500;
+		delay += 400;
 	}
 }
 function checkCellUnder(cell) {
@@ -62,6 +68,14 @@ function checkCellUnder(cell) {
 	let nextUnder = document.querySelectorAll(`[data-y]`)[currentY].querySelector(`[data-x='${currentX}']`);
 	if (nextUnder.getAttribute('data-empty') === 'no') {
 		return true;
+	}
+}
+function clearCells() {
+	let cells = document.querySelectorAll('[data-empty="no"]');
+
+	for (let cell of cells) {
+		cell.style.backgroundColor = null;
+		cell.setAttribute('data-empty', 'yes');
 	}
 }
 //function to check nextCell under the current one;
