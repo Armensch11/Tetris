@@ -19,11 +19,20 @@ body {
 	display: flex;
 	flex-direction: row;
 }
-#start-stop {
+#start {
 	position: absolute;
 	left: 45%;
 	width: 100px;
 	height: 40px;
 	border: 1px solid grey;
-	background-color: grey;
+	background-color: rgb(220, 223, 48);
+}
+#stop {
+	position: absolute;
+	left: 45%;
+	top: 10%;
+	width: 100px;
+	height: 40px;
+	border: 1px solid grey;
+	background-color: rgb(100, 5, 155);
 }
