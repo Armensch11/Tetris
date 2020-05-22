@@ -199,6 +199,7 @@ let stop = document.createElement('div');
 stop.setAttribute('id', 'stop');
 stopPos.appendChild(stop);
 stop = document.getElementById('stop');
+stop.innerHTML = 'stop';
 stop.addEventListener('click', clearCells);
 const left = document.createElement('div');
 document.getElementById('move-buttons').appendChild(left);
