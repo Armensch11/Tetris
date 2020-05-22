@@ -1,141 +1,113 @@
-let enterJob = document.getElementById('enter');
-let removeJob = document.getElementById('remove');
-let inputArea = document.getElementsByTagName('input')[0];
-// inputArea.addEventListener('click', () => {
-// 	inputArea.setAttribute('placeholder', '');
-// });
+let colConst;
+let rowConst;
+const startPos = document.getElementById('start-place');
+let start = document.createElement('div');
+start.setAttribute('id', 'start-stop');
+startPos.appendChild(start);
+start = document.getElementById('start-stop');
+start.addEventListener('click', oneDown);
+const arena = document.getElementById('game-arena');
+for (let i = 1; i <= 10; i++) {
+	rowConst = document.createElement('div');
+	rowConst.classList = 'arena-row';
+	rowConst.setAttribute('data-y', i);
+	rowConst.setAttribute('data-empty', 'yes');
+	arena.appendChild(rowConst);
+}
+const rows = document.getElementsByClassName('arena-row');
 
-addEventListener('click', outsideClick);
-
-enterJob.addEventListener('click', add);
-
-addEventListener('keydown', function(event) {
-	switch (event.keyCode) {
-		case 13:
-			// console.log('hi');
-			add();
-			break;
-		case 46:
-			// console.log('bye');
-			removeValue();
-			break;
-	}
-});
-
-
-let counter = 0;
-let entrySet=new Set();
-function add() {
-	let jobInfo = getValue();
-	let todoContainer = document.getElementById('todo-container');
-	let todoItem;
-	let infoDiv;
-	let statusDiv;
-	let delDiv;
-	let hLine;
-
-	if (jobInfo) {
-		let setSize=entrySet.size;
-	
-		entrySet.add(jobInfo.split(' ').join(''));
-		if (entrySet.size===setSize){
-			alert('you have such entry');
-			return document.getElementById('input-field').focus();;
-		}
-		
-
-		hLine = document.createElement('hr');
-		hLine.classList.add('hr');
-
-		hLine.setAttribute('index', counter);
-		counter++;
-		todoContainer.prepend(hLine);
-
-		todoItem = document.createElement('div');
-		todoItem.classList.add('todo-item');
-		todoContainer.prepend(todoItem);
-
-		infoDiv = document.createElement('div');
-		infoDiv.classList.add('action-info');
-
-		statusDiv = document.createElement('div');
-		statusDiv.classList.add('action-done');
-		
-		statusDiv.addEventListener('click',showDone);
-
-		delDiv = document.createElement('div');
-		delDiv.classList.add('remove');
-		
-		delDiv.addEventListener('click', deleteParent);
-		// delDiv.appendChild(document.createTextNode('del'));
-		todoItem.prepend(infoDiv, statusDiv, delDiv);
-		
-		infoDiv.innerHTML = jobInfo;
-		removeValue();
-		inputArea.setAttribute('placeholder', 'to do info');
-		document.getElementById('input-field').focus();
+for (let row of rows) {
+	for (let i = 1; i <= 5; i++) {
+		colConst = document.createElement('div');
+		colConst.classList = 'arena-colum';
+		colConst.setAttribute('data-x', i);
+		colConst.setAttribute('data-empty', 'yes');
+		row.appendChild(colConst);
 	}
 }
-// // function actionToRemove(current){
-// // 	let parent=current.closest('div.todo-item');
-// // 	let content=parent.firstChild.innerHTML
-// // 	return content;
-
-// // }
-function actionToRemove(current,classname){
-	let prevSib=current.previousElementSibling;
-	// console.log(prevSib);
-	while (prevSib){
-		if(prevSib.className===classname){
-			return prevSib.innerHTML;
-		}
-		prevSib=prevSib.previousElementSibling;
-	}
-	
-
+function entryPoint(randomCell = Math.floor(Math.random() * 11)) {
+	document.querySelectorAll('[data-x]')[randomCell].style.backgroundColor = 'yellow';
+	return;
 }
-function deleteParent(event) {
-	// const deleteJob = document.getElementsByClassName('remove');
-	// if (deleteJob.length) {
-	// 	Array.from(deleteJob).forEach((div) => {
-	// 		div.addEventListener('click', remove);
-	// 	});
-	// }
-	let child = event.target;
-	let jobToDel= actionToRemove(child,'action-info');
-	// let jobToDel=child.closest('action-info').innerHTML;
-	// console.log(jobToDel);
-	entrySet.delete(jobToDel);
-	// console.log(event.target);
-	let delDiv = child.closest('div.todo-item');
+// entryPoint(5);
 
-	// console.log(delDiv);
-	// console.log('I am here');
-	delDiv.nextElementSibling.remove();
-	delDiv.remove();
-}
-function showDone() {
-	let child = event.target;
-	let paintDiv=child.closest('div.todo-item');
-	paintDiv.style.backgroundColor='#f51f1f70';
+function oneDown(delay = 1500) {
+	let stepDown = document.querySelectorAll('[data-x="3"]');
+	// stepDown = Array.from(stepDown).forEach((el) => (el.style.backgroundColor = 'yellow'));
+	for (let cell of stepDown) {
+		// cell.style.backgroundColor = 'yellow';
 
-}
-function removeValue() {
-	inputArea.value = '';
-}
-function getValue() {
-	return inputArea.value;
-}
+		setTimeout(() => {
+			cell.style.backgroundColor = 'yellow';
 
+			// cell.style.removeProperty('backgroundColor');
+		}, delay);
+		// console.log(cell.closest('[data-y]'));
 
-function outsideClick(event) {
-	if (event.target !== inputArea) {
-		inputArea.setAttribute('placeholder', 'to do info');
-	} else {
-		inputArea.setAttribute('placeholder', '');
-	}
-	if (event.target === removeJob) {
-		inputArea.setAttribute('placeholder', '');
-		removeValue();
+		setTimeout(() => {
+			if (cell.closest('[data-y]').getAttribute('data-y') === '10' || checkCellUnder(cell)) {
+				cell.setAttribute('data-empty', 'no');
+				return;
+			}
+			cell.style.backgroundColor = null;
+
+			// cell.style.removeProperty('backgroundColor');
+		}, 300 + delay);
+		delay += 500;
 	}
 }
+function checkCellUnder(cell) {
+	let currentX = +cell.getAttribute('data-x');
+	let currentY = +cell.closest('[data-y]').getAttribute('data-y');
+	let nextUnder = document.querySelectorAll(`[data-y]`)[currentY].querySelector(`[data-x='${currentX}']`);
+	if (nextUnder.getAttribute('data-empty') === 'no') {
+		return true;
+	}
+}
+//function to check nextCell under the current one;
+// function checkCellUnder(cell) {
+// 	let parent = cell.closest('[data-y]');
+// 	let nextParent = parent.nextElementSibling;
+// 	let xPosition = +cell.getAttribute('data-x');
+// 	let child = nextParent.childNodes[xPosition - 1];
+// 	// console.log(child.getAttribute('[]'))
+// 	if (child.getAttribute('data-empty') === 'no') {
+// 		return true;
+// 	}
+// 	return false;
+// }
+function leftRight() {}
+// function oneDownFast() {
+// 	let stepDown = document.querySelectorAll('[data-x="5"]');
+// 	// stepDown = Array.from(stepDown).forEach((el) => (el.backgroundColor = 'yellow'));
+// 	for (let cell of stepDown) {
+// 		// cell.style.backgroundColor = 'yellow';
+
+// 		setTimeout(() => {
+// 			cell.style.backgroundColor = 'yellow';
+// 			// cell.style.removeProperty('backgroundColor');
+// 		}, delay * 400);
+// 		delay++;
+// 		setTimeout(() => {
+// 			cell.style.backgroundColor = null;
+// 			// cell.style.removeProperty('backgroundColor');
+// 		}, delay * 404);
+// 	}
+// }
+// function oneDownRocket() {
+// 	let stepDown = document.querySelectorAll('[data-x="5"]');
+// 	// stepDown = Array.from(stepDown).forEach((el) => (el.backgroundColor = 'yellow'));
+// 	for (let cell of stepDown) {
+// 		// cell.style.backgroundColor = 'yellow';
+
+// 		setTimeout(() => {
+// 			cell.style.backgroundColor = 'yellow';
+// 			// cell.style.removeProperty('backgroundColor');
+// 		}, delay * 100);
+// 		delay++;
+// 		setTimeout(() => {
+// 			cell.style.backgroundColor = null;
+// 			// cell.style.removeProperty('backgroundColor');
+// 		}, delay * 100);
+// 	}
+// }
