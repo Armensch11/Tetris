@@ -1,3 +1,14 @@
+function entryPoint(randomCell = Math.floor(Math.random() * 5)) {
+	let firstRow = document.querySelectorAll('[data-y]')[0];
+	// console.log(firstRow);
+	for (let cell of firstRow.childNodes) {
+		cell.style.backgroundColor = null;
+	}
+	let randomCol = firstRow.childNodes[randomCell];
+	randomCol.style.backgroundColor = '#874da8';
+	randomCol.setAttribute('data-empty', 'no');
+	return;
+}
 function moveDown(currentCell = document.querySelector('[data-empty="no"]')) {
 	let currentX = +currentCell.getAttribute('data-x');
 	let currentY = +currentCell.closest('[data-y]').getAttribute('data-y');
@@ -40,6 +51,7 @@ function clearCells() {
 		cell.setAttribute('data-empty', 'yes');
 	}
 }
+
 var currentCell = document.querySelector('[data-empty="no"]');
 let colConst;
 let rowConst;
@@ -93,15 +105,3 @@ right.classList.add('move');
 right.setAttribute('id', 'right');
 right.innerHTML = 'right';
 right.addEventListener('click', () => moveRight());
-
-function entryPoint(randomCell = Math.floor(Math.random() * 5)) {
-	let firstRow = document.querySelectorAll('[data-y]')[0];
-	// console.log(firstRow);
-	for (let cell of firstRow.childNodes) {
-		cell.style.backgroundColor = null;
-	}
-	let randomCol = firstRow.childNodes[randomCell];
-	randomCol.style.backgroundColor = '#874da8';
-	randomCol.setAttribute('data-empty', 'no');
-	return;
-}
