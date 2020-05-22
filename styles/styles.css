@@ -1,155 +1,29 @@
-body{
-	background-image: url(https://armensch11.github.io/todoapp/images/paper-week.jpg);
-	background-repeat: no-repeat;
-	background-size: cover ;
-
-}
-#app-container {
-	position: absolute;
-	min-width: 470px;
-	max-width: 30%;
-	height: fit-content;
-
+#game-arena {
 	display: flex;
 	flex-direction: column;
-	margin-left: 17%;
-	margin-top: 7%;
-	padding: 5px;
-	background-image: url(https://armensch11.github.io/todoapp/images/app-background.jpg);
-	
-	
-	/* background-color: rgb(255, 255, 255); */
+	width: fit-content;
+	height: fit-content;
 }
-#app-container:hover {
-	box-shadow: 0px 8px 8px 3px;
+.arena-row {
+	display: flex;
+	flex-direction: row;
+	width: fit-content;
+	height: 35px;
 }
-#todo-container {
-	flex-direction: column;
-
-	margin-top: 2%;
+.arena-colum {
+	height: 35px;
+	width: 35px;
+	border: 1px solid grey;
 }
-#entry-field {
-	display: inline-flex;
-	justify-content: space-between;
+body {
+	display: flex;
+	flex-direction: row;
 }
-#enter{
-	
-	background-image: url(https://armensch11.github.io/todoapp/icons/enter-icon.png);
-	height:50px;
-	width: 50px;
-	background-repeat: no-repeat;
-	background-size: cover ;
-	margin: 2px;
-	
-
-}
-#remove{
-	background-image: url(https://armensch11.github.io/todoapp/icons/clear-icon.png);
-	height:50px;
-	width: 50px;
-	background-repeat: no-repeat;
-	background-size: cover ;
-	margin: 2px;
-}
-input {
-	width: 80%;
-	background-color: rgb(255, 255, 255);
-	font-family: 'Courier New', Courier, monospace;
-	border: none;
-	margin: 4px;
-}
-/* button {
-	margin: 1px;
-	border: none;
-	background-color: white;
-	font-family: 'Courier New', Courier, monospace;
-	font-size: 16px;
-	background-color: rgb(226, 226, 226);
-} */
-hr {
-	margin: 3px;
-	width: 100%;
-	height: auto;
-	color: grey;
-
+#start-stop {
+	position: absolute;
+	left: 45%;
+	width: 100px;
+	height: 40px;
+	border: 1px solid grey;
 	background-color: grey;
-}
-.todo-item {
-	display: inline-flex;
-	justify-content: space-around;
-	margin: 2px;
-}
-.action-info {
-	width: 350px;
-	height: 50px;
-
-	align-self: center;
-	overflow-wrap: break-word;
-	font-family: 'Courier New', Courier, monospace;
-	color: rgb(22, 22, 21);
-	text-align: justify;
-	padding: 5px;
-	margin: 4px;
-	box-sizing: border-box;
-	background-color:rgba(211, 208, 208, 0.274);
-}
-
-.action-done {
-	text-align: center;
-	align-self: center;
-	width: 40px;
-	height: 40px;
-	background-image: url(https://armensch11.github.io/todoapp/icons/done-icon.png);
-	background-repeat: no-repeat;
-	background-size: cover ;
-	margin: 4px;
-	
-}
-.remove {
-	text-align: center;
-	align-self: center;
-	width: 40px;
-	height: 40px;
-	background-image: url(https://armensch11.github.io/todoapp/icons/delete-icon.png);
-	background-repeat: no-repeat;
-	background-size: cover ;
-	margin: 4px;
-	
-	font-family: 'Courier New', Courier, monospace;
-}
-.action-info:hover {
-	background-color: rgba(255, 255, 255, 0.61);
-	border: none;
-	font-size: 20px;
-	box-shadow: 2px 1px 2px 1px;
-	transition: 0.4s;
-}
-.remove:hover {
-	background-color: rgba(245, 243, 247, 0.795);
-
-	font-size: 19px;
-	box-shadow: 2px 1px 2px 1px;
-	transition: 0.3s;
-}
-
-.action-done:hover {
-	background-color: rgba(245, 243, 247, 0.795);
-	font-size: 19px;
-	box-shadow: 2px 1px 2px 1px;
-	transition: 0.3s;
-}
-button{
-	color: white;
-	background-color: rgb(197, 194, 194);
-	border: none;
-}
-input:hover{
-	border: 1px solid rgb(219, 219, 219);
-}
-button:hover {
-	background-color: rgba(255, 255, 255, 0.796);
-	font-size: 19px;
-	border: 1px solid rgb(219, 219, 219);
-
-	transition: 0.2s;
 }
