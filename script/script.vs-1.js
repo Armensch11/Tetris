@@ -1,13 +1,14 @@
 function moveDown(currentCell = document.querySelector('[data-empty="no"]')) {
 	let currentX = +currentCell.getAttribute('data-x');
 	let currentY = +currentCell.closest('[data-y]').getAttribute('data-y');
-
-	let nextUnder = document.querySelectorAll(`[data-y]`)[currentY].querySelector(`[data-x='${currentX}']`);
-	if (nextUnder.getAttribute('data-empty') === 'yes') {
-		nextUnder.style.backgroundColor = '#874da8';
-		nextUnder.setAttribute('data-empty', 'no');
-		currentCell.style.backgroundColor = null;
-		currentCell.setAttribute('data-empty', 'yes');
+	if (!!document.querySelectorAll(`[data-y]`)[currentY]) {
+		let nextUnder = document.querySelectorAll(`[data-y]`)[currentY].querySelector(`[data-x='${currentX}']`);
+		if (nextUnder.getAttribute('data-empty') === 'yes') {
+			nextUnder.style.backgroundColor = '#874da8';
+			nextUnder.setAttribute('data-empty', 'no');
+			currentCell.style.backgroundColor = null;
+			currentCell.setAttribute('data-empty', 'yes');
+		}
 	}
 }
 function moveLeft(currentCell = document.querySelector('[data-empty="no"]')) {
