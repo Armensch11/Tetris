@@ -47,25 +47,30 @@ body {
 	position: absolute;
 	left: 45%;
 	top: 30%;
-	width: 200px;
+	width: 220px;
 	height: fit-content;
 	align-self: center;
-
-	background-color: rgb(118, 145, 22);
 }
 .move {
 	padding: 0px;
 	margin-left: 5px;
 	margin-right: 5px;
-	width: fit-content;
+	width: 70px;
 	height: 30px;
 	align-self: center;
 	font-family: 'Courier New', Courier, monospace;
+	text-align: center;
+	line-height: 30px;
 	box-sizing: border-box;
+	background-color: rgb(160, 150, 19);
 }
 .move:hover {
 	transition: 0.5s;
+	width: 75px;
+	height: 32;
 	font-size: 20px;
 	font-weight: 600;
 	color: honeydew;
+	cursor: pointer;
+	background-color: rgb(70, 121, 136);
 }
