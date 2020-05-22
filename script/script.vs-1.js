@@ -51,7 +51,120 @@ function clearCells() {
 		cell.setAttribute('data-empty', 'yes');
 	}
 }
+function sqrShape() {
+	let startRow = document.querySelector('[data-y="1"]');
+	let yCord = +startRow.getAttribute('data-y');
 
+	let startPoint = startRow.querySelector('[data-x="3"]');
+
+	let xCord = +startPoint.getAttribute('data-x');
+	// console.log(yCord);
+	startPoint.style.backgroundColor = '#874da8';
+	startPoint.nextSibling.style.backgroundColor = '#874da8';
+
+	document
+		.querySelector(`[data-y="${yCord + 1}"]`)
+		.querySelector(`[data-x="${xCord}"]`).nextElementSibling.style.backgroundColor =
+		'#874da8';
+	// console.log(document.querySelector(`[data-y="${yCord + 1}"]`));
+}
+function lineShape() {
+	let startRow = document.querySelector('[data-y="1"]');
+	let yCord = +startRow.getAttribute('data-y');
+
+	let startPoint = startRow.querySelector('[data-x="3"]');
+
+	let xCord = +startPoint.getAttribute('data-x');
+	startPoint.style.backgroundColor = '#874da8';
+	document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`).style.backgroundColor =
+		'#874da8';
+	document.querySelector(`[data-y="${yCord + 2}"]`).querySelector(`[data-x="${xCord}"]`).style.backgroundColor =
+		'#874da8';
+	document.querySelector(`[data-y="${yCord + 3}"]`).querySelector(`[data-x="${xCord}"]`).style.backgroundColor =
+		'#874da8';
+}
+
+function l_Shape() {
+	let startRow = document.querySelector('[data-y="1"]');
+	let yCord = +startRow.getAttribute('data-y');
+
+	let startPoint = startRow.querySelector('[data-x="3"]');
+
+	let xCord = +startPoint.getAttribute('data-x');
+	startPoint.style.backgroundColor = '#874da8';
+	document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`).style.backgroundColor =
+		'#874da8';
+	document.querySelector(`[data-y="${yCord + 2}"]`).querySelector(`[data-x="${xCord}"]`).style.backgroundColor =
+		'#874da8';
+	document
+		.querySelector(`[data-y="${yCord + 2}"]`)
+		.querySelector(`[data-x="${xCord}"]`).nextElementSibling.style.backgroundColor =
+		'#874da8';
+}
+function l_ShapeMirror() {
+	let startRow = document.querySelector('[data-y="1"]');
+	let yCord = +startRow.getAttribute('data-y');
+
+	let startPoint = startRow.querySelector('[data-x="3"]');
+
+	let xCord = +startPoint.getAttribute('data-x');
+	startPoint.style.backgroundColor = '#874da8';
+	document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`).style.backgroundColor =
+		'#874da8';
+	document.querySelector(`[data-y="${yCord + 2}"]`).querySelector(`[data-x="${xCord}"]`).style.backgroundColor =
+		'#874da8';
+	document
+		.querySelector(`[data-y="${yCord + 2}"]`)
+		.querySelector(`[data-x="${xCord}"]`).previousElementSibling.style.backgroundColor =
+		'#874da8';
+}
+function z_Shape() {
+	let startRow = document.querySelector('[data-y="1"]');
+	let yCord = +startRow.getAttribute('data-y');
+
+	let startPoint = startRow.querySelector('[data-x="3"]');
+
+	let xCord = +startPoint.getAttribute('data-x');
+	startPoint.style.backgroundColor = '#874da8';
+	document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`).style.backgroundColor =
+		'#874da8';
+	document
+		.querySelector(`[data-y="${yCord + 1}"]`)
+		.querySelector(`[data-x="${xCord}"]`).nextElementSibling.style.backgroundColor =
+		'#874da8';
+	document.querySelector(`[data-y="${yCord + 2}"]`).querySelector(`[data-x="${xCord + 1}"]`).style.backgroundColor =
+		'#874da8';
+}
+function z_ShapeMirror() {
+	let startRow = document.querySelector('[data-y="1"]');
+	let yCord = +startRow.getAttribute('data-y');
+
+	let startPoint = startRow.querySelector('[data-x="3"]');
+
+	let xCord = +startPoint.getAttribute('data-x');
+	startPoint.style.backgroundColor = '#874da8';
+	document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`).style.backgroundColor =
+		'#874da8';
+	document
+		.querySelector(`[data-y="${yCord + 1}"]`)
+		.querySelector(`[data-x="${xCord}"]`).previousElementSibling.style.backgroundColor =
+		'#874da8';
+	document.querySelector(`[data-y="${yCord + 2}"]`).querySelector(`[data-x="${xCord - 1}"]`).style.backgroundColor =
+		'#874da8';
+}
+function triangleShape() {
+	let startRow = document.querySelector('[data-y="1"]');
+	let yCord = +startRow.getAttribute('data-y');
+
+	let startPoint = startRow.querySelector('[data-x="3"]');
+
+	let xCord = +startPoint.getAttribute('data-x');
+	startPoint.style.backgroundColor = '#874da8';
+	startPoint.previousSibling.style.backgroundColor = '#874da8';
+	startPoint.nextSibling.style.backgroundColor = '#874da8';
+	document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`).style.backgroundColor =
+		'#874da8';
+}
 var currentCell = document.querySelector('[data-empty="no"]');
 let colConst;
 let rowConst;
