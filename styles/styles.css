@@ -21,23 +21,56 @@ body {
 
 #start {
 	position: absolute;
-	left: 45%;
-	width: 100px;
-	height: 40px;
+	left: 50%;
+
+	padding: 0px;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: 70px;
+	height: 30px;
+	align-self: center;
 	font-family: 'Courier New', Courier, monospace;
-	box-sizing: border-box;
 	text-align: center;
-	border: 1px solid grey;
-	background-color: rgb(220, 223, 48);
+	line-height: 30px;
+	box-sizing: border-box;
+	background-color: rgb(214, 177, 9);
+}
+#start:hover {
+	transition: 0.3s;
+	width: 75px;
+	height: 32;
+	font-size: 20px;
+	font-weight: 600;
+	color: rgb(255, 255, 255);
+	cursor: pointer;
+	background-color: rgb(189, 50, 50);
 }
 #stop {
 	position: absolute;
-	left: 45%;
+	left: 50%;
 	top: 10%;
-	width: 100px;
-	height: 40px;
-	border: 1px solid grey;
-	background-color: #874da8;
+	padding: 0px;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: 70px;
+	height: 30px;
+	align-self: center;
+	font-family: 'Courier New', Courier, monospace;
+	text-align: center;
+	line-height: 30px;
+	box-sizing: border-box;
+	background-color: rgba(13, 31, 112, 0.719);
+	color: ivory;
+}
+#stop:hover {
+	transition: 0.3s;
+	width: 75px;
+	height: 32px;
+	font-size: 20px;
+	font-weight: 600;
+	color: honeydew;
+	cursor: pointer;
+	background-color: rgba(13, 31, 112, 0.719);
 }
 
 #move-buttons {
@@ -62,10 +95,10 @@ body {
 	text-align: center;
 	line-height: 30px;
 	box-sizing: border-box;
-	background-color: rgb(160, 150, 19);
+	background-color: rgb(206, 176, 5);
 }
 .move:hover {
-	transition: 0.5s;
+	transition: 0.3s;
 	width: 75px;
 	height: 32;
 	font-size: 20px;
