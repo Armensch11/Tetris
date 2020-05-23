@@ -73,14 +73,14 @@ body {
 	align-self: center;
 }
 #left {
-	background-image: url(https://armensch11.github.io/tetris/icons/left-icon.png);
+	background-image: url(https://armensch11.github.io/tetris/icons/grad-left.png);
 	background-size: ;
 }
 #down {
-	background-image: url(https://armensch11.github.io/tetris/icons/down-icon.png);
+	background-image: url(https://armensch11.github.io/tetris/icons/grad-down.png);
 }
 #right {
-	background-image: url(https://armensch11.github.io/tetris/icons/right-icon.png);
+	background-image: url(https://armensch11.github.io/tetris/icons/grad-right.png);
 }
 
 .move {
