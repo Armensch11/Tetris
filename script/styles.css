@@ -1,0 +1,137 @@
+#game-arena {
+	display: flex;
+	flex-direction: column;
+	width: fit-content;
+	height: fit-content;
+}
+.arena-row {
+	display: flex;
+	flex-direction: row;
+	width: fit-content;
+	height: 35px;
+}
+.arena-colum {
+	height: 35px;
+	width: 35px;
+	border: 1px solid grey;
+}
+body {
+	display: flex;
+}
+
+#start {
+	position: absolute;
+	left: 45%;
+	background-image: url(https://armensch11.github.io/tetris/icons/play-icon.png);
+	padding: 0px;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: 63px;
+	height: 63px;
+	align-self: center;
+	font-family: 'Courier New', Courier, monospace;
+	text-align: center;
+	line-height: 30px;
+	box-sizing: border-box;
+}
+#start:hover {
+	transition: 0.3s;
+	border-radius: 50%;
+	cursor: pointer;
+	background-color: rgb(228, 224, 224);
+}
+#stop {
+	position: absolute;
+	left: 45.5%;
+	top: 10%;
+	background-image: url(https://armensch11.github.io/tetris/icons/del-icon.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	padding: 0px;
+
+	width: 63px;
+	height: 63px;
+
+	box-sizing: border-box;
+}
+#stop:hover {
+	transition: 0.3s;
+	border-radius: 50%;
+	cursor: pointer;
+	background-color: rgb(228, 224, 224);
+}
+
+#move-buttons {
+	display: flex;
+
+	justify-content: space-between;
+	position: absolute;
+	left: 35.5%;
+	top: 22%;
+	width: 300px;
+	height: fit-content;
+	align-self: center;
+}
+#left {
+	background-image: url(https://armensch11.github.io/tetris/icons/grad-left.png);
+}
+#down {
+	background-image: url(/tetris/icons/grad-down.png);
+}
+#right {
+	background-image: url(/tetris/icons/grad-right.png);
+}
+
+.move {
+	padding: 0px;
+	margin-left: 10px;
+	margin-right: 10px;
+	width: 63px;
+	height: 63px;
+
+	box-sizing: border-box;
+}
+.move:hover {
+	transition: 0.2s;
+	border-radius: 30%;
+	cursor: pointer;
+	background-color: rgb(224, 224, 223);
+}
+#shapes {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	position: absolute;
+	left: 65%;
+}
+#square,
+#line,
+#l_Shape,
+#l_ShapeMirror,
+#z_Shape,
+#z_ShapeMirror,
+#triangle {
+	padding: 0px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 80px;
+	height: 30px;
+	align-self: center;
+	font-family: 'Courier New', Courier, monospace;
+	text-align: center;
+	line-height: 30px;
+	box-sizing: border-box;
+	background-color: rgb(85, 141, 136);
+	color: ivory;
+}
+#square:hover,
+#line:hover,
+#l_Shape:hover,
+#l_ShapeMirror:hover,
+#z_Shape:hover,
+#z_ShapeMirror:hover,
+#triangle:hover {
+	cursor: pointer;
+	background-color: rgba(240, 217, 17, 0.767);
+	color: rgb(104, 104, 103);
+}
