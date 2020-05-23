@@ -60,12 +60,17 @@ function sqrShape() {
 	let xCord = +startPoint.getAttribute('data-x');
 	// console.log(yCord);
 	startPoint.style.backgroundColor = '#874da8';
-	startPoint.nextSibling.style.backgroundColor = '#874da8';
+	let point2 = startPoint.nextSibling;
+	point2.style.backgroundColor = '#874da8';
+	let point3 = document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`);
+	point3.style.backgroundColor = '#874da8';
+	let point4 = document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`);
+	point4.nextElementSibling.style.backgroundColor = '#874da8';
+	startPoint.setAttribute('data-empty', 'no');
+	point2.setAttribute('data-empty', 'no');
+	point3.setAttribute('data-empty', 'no');
+	point4.setAttribute('data-empty', 'no');
 
-	document
-		.querySelector(`[data-y="${yCord + 1}"]`)
-		.querySelector(`[data-x="${xCord}"]`).nextElementSibling.style.backgroundColor =
-		'#874da8';
 	// console.log(document.querySelector(`[data-y="${yCord + 1}"]`));
 }
 function lineShape() {
@@ -76,12 +81,16 @@ function lineShape() {
 
 	let xCord = +startPoint.getAttribute('data-x');
 	startPoint.style.backgroundColor = '#874da8';
-	document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`).style.backgroundColor =
-		'#874da8';
-	document.querySelector(`[data-y="${yCord + 2}"]`).querySelector(`[data-x="${xCord}"]`).style.backgroundColor =
-		'#874da8';
-	document.querySelector(`[data-y="${yCord + 3}"]`).querySelector(`[data-x="${xCord}"]`).style.backgroundColor =
-		'#874da8';
+	let point2 = document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`);
+	point2.style.backgroundColor = '#874da8';
+	let point3 = document.querySelector(`[data-y="${yCord + 2}"]`).querySelector(`[data-x="${xCord}"]`);
+	point3.style.backgroundColor = '#874da8';
+	let point4 = document.querySelector(`[data-y="${yCord + 3}"]`).querySelector(`[data-x="${xCord}"]`);
+	point4.style.backgroundColor = '#874da8';
+	startPoint.setAttribute('data-empty', 'no');
+	point2.setAttribute('data-empty', 'no');
+	point3.setAttribute('data-empty', 'no');
+	point4.setAttribute('data-empty', 'no');
 }
 
 function l_Shape() {
@@ -92,14 +101,17 @@ function l_Shape() {
 
 	let xCord = +startPoint.getAttribute('data-x');
 	startPoint.style.backgroundColor = '#874da8';
-	document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`).style.backgroundColor =
-		'#874da8';
-	document.querySelector(`[data-y="${yCord + 2}"]`).querySelector(`[data-x="${xCord}"]`).style.backgroundColor =
-		'#874da8';
-	document
-		.querySelector(`[data-y="${yCord + 2}"]`)
-		.querySelector(`[data-x="${xCord}"]`).nextElementSibling.style.backgroundColor =
-		'#874da8';
+	let point2 = document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`);
+	point2.style.backgroundColor = '#874da8';
+	let point3 = document.querySelector(`[data-y="${yCord + 2}"]`).querySelector(`[data-x="${xCord}"]`);
+	point3.style.backgroundColor = '#874da8';
+	let point4 = document.querySelector(`[data-y="${yCord + 2}"]`).querySelector(`[data-x="${xCord}"]`)
+		.nextElementSibling;
+	point4.style.backgroundColor = '#874da8';
+	startPoint.setAttribute('data-empty', 'no');
+	point2.setAttribute('data-empty', 'no');
+	point3.setAttribute('data-empty', 'no');
+	point4.setAttribute('data-empty', 'no');
 }
 function l_ShapeMirror() {
 	let startRow = document.querySelector('[data-y="1"]');
@@ -109,14 +121,17 @@ function l_ShapeMirror() {
 
 	let xCord = +startPoint.getAttribute('data-x');
 	startPoint.style.backgroundColor = '#874da8';
-	document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`).style.backgroundColor =
-		'#874da8';
-	document.querySelector(`[data-y="${yCord + 2}"]`).querySelector(`[data-x="${xCord}"]`).style.backgroundColor =
-		'#874da8';
-	document
-		.querySelector(`[data-y="${yCord + 2}"]`)
-		.querySelector(`[data-x="${xCord}"]`).previousElementSibling.style.backgroundColor =
-		'#874da8';
+	let point2 = document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`);
+	point2.style.backgroundColor = '#874da8';
+	let point3 = document.querySelector(`[data-y="${yCord + 2}"]`).querySelector(`[data-x="${xCord}"]`);
+	point3.style.backgroundColor = '#874da8';
+	let point4 = document.querySelector(`[data-y="${yCord + 2}"]`).querySelector(`[data-x="${xCord}"]`)
+		.previousElementSibling;
+	point4.style.backgroundColor = '#874da8';
+	startPoint.setAttribute('data-empty', 'no');
+	point2.setAttribute('data-empty', 'no');
+	point3.setAttribute('data-empty', 'no');
+	point4.setAttribute('data-empty', 'no');
 }
 function z_Shape() {
 	let startRow = document.querySelector('[data-y="1"]');
@@ -126,14 +141,17 @@ function z_Shape() {
 
 	let xCord = +startPoint.getAttribute('data-x');
 	startPoint.style.backgroundColor = '#874da8';
-	document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`).style.backgroundColor =
-		'#874da8';
-	document
-		.querySelector(`[data-y="${yCord + 1}"]`)
-		.querySelector(`[data-x="${xCord}"]`).nextElementSibling.style.backgroundColor =
-		'#874da8';
-	document.querySelector(`[data-y="${yCord + 2}"]`).querySelector(`[data-x="${xCord + 1}"]`).style.backgroundColor =
-		'#874da8';
+	let point2 = document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`);
+	point2.style.backgroundColor = '#874da8';
+	let point3 = document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`)
+		.nextElementSibling;
+	point3.style.backgroundColor = '#874da8';
+	let point4 = document.querySelector(`[data-y="${yCord + 2}"]`).querySelector(`[data-x="${xCord + 1}"]`);
+	point4.style.backgroundColor = '#874da8';
+	startPoint.setAttribute('data-empty', 'no');
+	point2.setAttribute('data-empty', 'no');
+	point3.setAttribute('data-empty', 'no');
+	point4.setAttribute('data-empty', 'no');
 }
 function z_ShapeMirror() {
 	let startRow = document.querySelector('[data-y="1"]');
@@ -143,14 +161,17 @@ function z_ShapeMirror() {
 
 	let xCord = +startPoint.getAttribute('data-x');
 	startPoint.style.backgroundColor = '#874da8';
-	document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`).style.backgroundColor =
-		'#874da8';
-	document
-		.querySelector(`[data-y="${yCord + 1}"]`)
-		.querySelector(`[data-x="${xCord}"]`).previousElementSibling.style.backgroundColor =
-		'#874da8';
-	document.querySelector(`[data-y="${yCord + 2}"]`).querySelector(`[data-x="${xCord - 1}"]`).style.backgroundColor =
-		'#874da8';
+	let point2 = document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`);
+	point2.style.backgroundColor = '#874da8';
+	let point3 = document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`)
+		.previousElementSibling;
+	point3.style.backgroundColor = '#874da8';
+	let point4 = document.querySelector(`[data-y="${yCord + 2}"]`).querySelector(`[data-x="${xCord - 1}"]`);
+	point4.style.backgroundColor = '#874da8';
+	startPoint.setAttribute('data-empty', 'no');
+	point2.setAttribute('data-empty', 'no');
+	point3.setAttribute('data-empty', 'no');
+	point4.setAttribute('data-empty', 'no');
 }
 function triangleShape() {
 	let startRow = document.querySelector('[data-y="1"]');
@@ -160,10 +181,16 @@ function triangleShape() {
 
 	let xCord = +startPoint.getAttribute('data-x');
 	startPoint.style.backgroundColor = '#874da8';
-	startPoint.previousSibling.style.backgroundColor = '#874da8';
-	startPoint.nextSibling.style.backgroundColor = '#874da8';
-	document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`).style.backgroundColor =
-		'#874da8';
+	let point2 = startPoint.previousSibling;
+	point2.style.backgroundColor = '#874da8';
+	let point3 = startPoint.nextSibling;
+	point3.style.backgroundColor = '#874da8';
+	let point4 = document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`);
+	point4.style.backgroundColor = '#874da8';
+	startPoint.setAttribute('data-empty', 'no');
+	point2.setAttribute('data-empty', 'no');
+	point3.setAttribute('data-empty', 'no');
+	point4.setAttribute('data-empty', 'no');
 }
 var currentCell = document.querySelector('[data-empty="no"]');
 //drawing cells and buttons with listeners in IIFE
@@ -262,3 +289,9 @@ var currentCell = document.querySelector('[data-empty="no"]');
 	triangle.innerHTML = 'triangle';
 	triangle.addEventListener('click', () => triangleShape());
 })();
+function moveFullDown() {
+	let notEpmptyCells = document.querySelectorAll("[data-empty='no']");
+	for (let cell of notEpmptyCells) {
+		moveDown(cell);
+	}
+}
