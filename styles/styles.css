@@ -76,10 +76,10 @@ body {
 	background-image: url(https://armensch11.github.io/tetris/icons/grad-left.png);
 }
 #down {
-	background-image: url('./icons/grad-down.png');
+	background-image: url('/icons/grad-down.png');
 }
 #right {
-	background-image: url('./icons/grad-right.png');
+	background-image: url('/icons/grad-right.png');
 }
 
 .move {
