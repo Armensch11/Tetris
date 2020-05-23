@@ -230,7 +230,7 @@ var currentCell = document.querySelector('[data-empty="no"]');
 	stop.setAttribute('id', 'stop');
 	stopPos.appendChild(stop);
 	stop = document.getElementById('stop');
-	stop.innerHTML = 'stop';
+	stop.innerHTML = 'clear';
 	stop.addEventListener('click', clearCells);
 	const left = document.createElement('div');
 	document.getElementById('move-buttons').appendChild(left);
@@ -290,7 +290,7 @@ var currentCell = document.querySelector('[data-empty="no"]');
 	triangle.innerHTML = 'triangle';
 	triangle.addEventListener('click', () => triangleShape());
 })();
-function moveFullDown() {
+function moveFullShapeDown() {
 	let notEpmptyCells = document.querySelectorAll("[data-empty='no']");
 	for (let cell of notEpmptyCells) {
 		moveDown(cell);
