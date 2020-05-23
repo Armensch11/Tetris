@@ -21,7 +21,7 @@ body {
 
 #start {
 	position: absolute;
-	left: 50%;
+	left: 45%;
 
 	padding: 0px;
 	margin-left: 5px;
@@ -47,7 +47,7 @@ body {
 }
 #stop {
 	position: absolute;
-	left: 50%;
+	left: 45%;
 	top: 10%;
 	padding: 0px;
 	margin-left: 5px;
@@ -78,7 +78,7 @@ body {
 
 	justify-content: space-between;
 	position: absolute;
-	left: 45%;
+	left: 40%;
 	top: 30%;
 	width: 220px;
 	height: fit-content;
@@ -106,4 +106,42 @@ body {
 	color: honeydew;
 	cursor: pointer;
 	background-color: rgb(70, 121, 136);
+}
+#shapes {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	position: absolute;
+	left: 65%;
+}
+#square,
+#line,
+#l_Shape,
+#l_ShapeMirror,
+#z_Shape,
+#z_ShapeMirror,
+#triangle {
+	padding: 0px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 80px;
+	height: 30px;
+	align-self: center;
+	font-family: 'Courier New', Courier, monospace;
+	text-align: center;
+	line-height: 30px;
+	box-sizing: border-box;
+	background-color: rgb(85, 141, 136);
+	color: ivory;
+}
+#square:hover,
+#line:hover,
+#l_Shape:hover,
+#l_ShapeMirror:hover,
+#z_Shape:hover,
+#z_ShapeMirror:hover,
+#triangle:hover {
+	cursor: pointer;
+	background-color: rgba(240, 217, 17, 0.767);
+	color: rgb(104, 104, 103);
 }
