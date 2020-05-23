@@ -64,8 +64,9 @@ function sqrShape() {
 	point2.style.backgroundColor = '#874da8';
 	let point3 = document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`);
 	point3.style.backgroundColor = '#874da8';
-	let point4 = document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`);
-	point4.nextElementSibling.style.backgroundColor = '#874da8';
+	let point4 = document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`)
+		.nextElementSibling;
+	point4.style.backgroundColor = '#874da8';
 	startPoint.setAttribute('data-empty', 'no');
 	point2.setAttribute('data-empty', 'no');
 	point3.setAttribute('data-empty', 'no');
