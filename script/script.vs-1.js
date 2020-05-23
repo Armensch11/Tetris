@@ -70,12 +70,11 @@ function sqrShape() {
 	let xCord = +startPoint.getAttribute('data-x');
 	// console.log(yCord);
 	startPoint.style.backgroundColor = '#874da8';
-	let point2 = startPoint.nextSibling;
+	let point2 = document.querySelector(`[data-y="${yCord}"]`).querySelector(`[data-x="${xCord + 1}"]`);
 	point2.style.backgroundColor = '#874da8';
 	let point3 = document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`);
 	point3.style.backgroundColor = '#874da8';
-	let point4 = document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`)
-		.nextElementSibling;
+	let point4 = document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord + 1}"]`);
 	point4.style.backgroundColor = '#874da8';
 	startPoint.setAttribute('data-empty', 'no');
 	point2.setAttribute('data-empty', 'no');
@@ -116,8 +115,7 @@ function l_Shape() {
 	point2.style.backgroundColor = '#874da8';
 	let point3 = document.querySelector(`[data-y="${yCord + 2}"]`).querySelector(`[data-x="${xCord}"]`);
 	point3.style.backgroundColor = '#874da8';
-	let point4 = document.querySelector(`[data-y="${yCord + 2}"]`).querySelector(`[data-x="${xCord}"]`)
-		.nextElementSibling;
+	let point4 = document.querySelector(`[data-y="${yCord + 2}"]`).querySelector(`[data-x="${xCord + 1}"]`);
 	point4.style.backgroundColor = '#874da8';
 	startPoint.setAttribute('data-empty', 'no');
 	point2.setAttribute('data-empty', 'no');
@@ -136,8 +134,7 @@ function l_ShapeMirror() {
 	point2.style.backgroundColor = '#874da8';
 	let point3 = document.querySelector(`[data-y="${yCord + 2}"]`).querySelector(`[data-x="${xCord}"]`);
 	point3.style.backgroundColor = '#874da8';
-	let point4 = document.querySelector(`[data-y="${yCord + 2}"]`).querySelector(`[data-x="${xCord}"]`)
-		.previousElementSibling;
+	let point4 = document.querySelector(`[data-y="${yCord + 2}"]`).querySelector(`[data-x="${xCord - 1}"]`);
 	point4.style.backgroundColor = '#874da8';
 	startPoint.setAttribute('data-empty', 'no');
 	point2.setAttribute('data-empty', 'no');
@@ -154,8 +151,7 @@ function z_Shape() {
 	startPoint.style.backgroundColor = '#874da8';
 	let point2 = document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`);
 	point2.style.backgroundColor = '#874da8';
-	let point3 = document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`)
-		.nextElementSibling;
+	let point3 = document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord + 1}"]`);
 	point3.style.backgroundColor = '#874da8';
 	let point4 = document.querySelector(`[data-y="${yCord + 2}"]`).querySelector(`[data-x="${xCord + 1}"]`);
 	point4.style.backgroundColor = '#874da8';
@@ -174,8 +170,7 @@ function z_ShapeMirror() {
 	startPoint.style.backgroundColor = '#874da8';
 	let point2 = document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`);
 	point2.style.backgroundColor = '#874da8';
-	let point3 = document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`)
-		.previousElementSibling;
+	let point3 = document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord - 1}"]`);
 	point3.style.backgroundColor = '#874da8';
 	let point4 = document.querySelector(`[data-y="${yCord + 2}"]`).querySelector(`[data-x="${xCord - 1}"]`);
 	point4.style.backgroundColor = '#874da8';
@@ -192,9 +187,9 @@ function triangleShape() {
 
 	let xCord = +startPoint.getAttribute('data-x');
 	startPoint.style.backgroundColor = '#874da8';
-	let point2 = startPoint.previousSibling;
+	let point2 = document.querySelector(`[data-y="${yCord}"]`).querySelector(`[data-x="${xCord - 1}"]`);
 	point2.style.backgroundColor = '#874da8';
-	let point3 = startPoint.nextSibling;
+	let point3 = document.querySelector(`[data-y="${yCord}"]`).querySelector(`[data-x="${xCord + 1}"]`);
 	point3.style.backgroundColor = '#874da8';
 	let point4 = document.querySelector(`[data-y="${yCord + 1}"]`).querySelector(`[data-x="${xCord}"]`);
 	point4.style.backgroundColor = '#874da8';
