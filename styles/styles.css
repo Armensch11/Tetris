@@ -79,7 +79,7 @@ body {
 	background-image: url(/tetris/icons/grad-down.png);
 }
 #right {
-	background-image: url('/icons/grad-right.png');
+	background-image: url(./icons/grad-right.png);
 }
 
 .move {
