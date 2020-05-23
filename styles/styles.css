@@ -22,55 +22,43 @@ body {
 #start {
 	position: absolute;
 	left: 45%;
-
+	background-image: url(/icons/play-icon.png);
 	padding: 0px;
 	margin-left: 5px;
 	margin-right: 5px;
-	width: 70px;
-	height: 30px;
+	width: 63px;
+	height: 63px;
 	align-self: center;
 	font-family: 'Courier New', Courier, monospace;
 	text-align: center;
 	line-height: 30px;
 	box-sizing: border-box;
-	background-color: rgb(214, 177, 9);
 }
 #start:hover {
 	transition: 0.3s;
-	width: 75px;
-	height: 32;
-	font-size: 20px;
-	font-weight: 600;
-	color: rgb(255, 255, 255);
+	border-radius: 50%;
 	cursor: pointer;
-	background-color: rgb(189, 50, 50);
+	background-color: rgb(228, 224, 224);
 }
 #stop {
 	position: absolute;
-	left: 45%;
+	left: 45.5%;
 	top: 10%;
+	background-image: url(/icons/del-icon.png);
+	background-repeat: no-repeat;
+	background-position: center;
 	padding: 0px;
-	margin-left: 5px;
-	margin-right: 5px;
-	width: 70px;
-	height: 30px;
-	align-self: center;
-	font-family: 'Courier New', Courier, monospace;
-	text-align: center;
-	line-height: 30px;
+
+	width: 63px;
+	height: 63px;
+
 	box-sizing: border-box;
-	background-color: rgba(13, 31, 112, 0.719);
-	color: ivory;
 }
 #stop:hover {
 	transition: 0.3s;
-	width: 75px;
-	height: 32px;
-	font-size: 20px;
-	font-weight: 600;
-	color: honeydew;
+	border-radius: 50%;
 	cursor: pointer;
-	background-color: rgba(13, 31, 112, 0.719);
+	background-color: rgb(228, 224, 224);
 }
 
 #move-buttons {
@@ -78,34 +66,37 @@ body {
 
 	justify-content: space-between;
 	position: absolute;
-	left: 40%;
+	left: 35%;
 	top: 30%;
-	width: 220px;
+	width: 300px;
 	height: fit-content;
 	align-self: center;
 }
+#left {
+	background-image: url(/icons/left-icon.png);
+	background-size: ;
+}
+#down {
+	background-image: url(/icons/down-icon.png);
+}
+#right {
+	background-image: url(/icons/right-icon.png);
+}
+
 .move {
 	padding: 0px;
-	margin-left: 5px;
-	margin-right: 5px;
-	width: 70px;
-	height: 30px;
-	align-self: center;
-	font-family: 'Courier New', Courier, monospace;
-	text-align: center;
-	line-height: 30px;
+	margin-left: 10px;
+	margin-right: 10px;
+	width: 63px;
+	height: 63px;
+
 	box-sizing: border-box;
-	background-color: rgb(206, 176, 5);
 }
 .move:hover {
-	transition: 0.3s;
-	width: 75px;
-	height: 32;
-	font-size: 20px;
-	font-weight: 600;
-	color: honeydew;
+	transition: 0.2s;
+	border-radius: 50%;
 	cursor: pointer;
-	background-color: rgb(70, 121, 136);
+	background-color: rgb(218, 218, 216);
 }
 #shapes {
 	display: flex;
