@@ -22,7 +22,8 @@ body {
 #start {
 	position: absolute;
 	left: 45%;
-	background-image: url(https://armensch11.github.io/tetris/icons/play-icon.png);
+	/* https://armensch11.github.io/tetris */
+	background-image: url(/icons/play-icon.png);
 	padding: 0px;
 	margin-left: 5px;
 	margin-right: 5px;
@@ -44,7 +45,8 @@ body {
 	position: absolute;
 	left: 45.5%;
 	top: 10%;
-	background-image: url(https://armensch11.github.io/tetris/icons/del-icon.png);
+	/* https://armensch11.github.io/tetris */
+	background-image: url(/icons/del-icon.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	padding: 0px;
@@ -73,13 +75,14 @@ body {
 	align-self: center;
 }
 #left {
-	background-image: url(https://armensch11.github.io/tetris/icons/grad-left.png);
+	/* https://armensch11.github.io/tetris */
+	background-image: url(/icons/grad-left.png);
 }
 #down {
-	background-image: url(/tetris/icons/grad-down.png);
+	background-image: url(/icons/grad-down.png);
 }
 #right {
-	background-image: url(/tetris/icons/grad-right.png);
+	background-image: url(/icons/grad-right.png);
 }
 
 .move {
