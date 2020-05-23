@@ -10,36 +10,42 @@ function entryPoint(randomCell = Math.floor(Math.random() * 5)) {
 	return;
 }
 function moveDown(currentCell = document.querySelector('[data-empty="no"]')) {
-	let currentX = +currentCell.getAttribute('data-x');
-	let currentY = +currentCell.closest('[data-y]').getAttribute('data-y');
-	if (!!document.querySelectorAll(`[data-y]`)[currentY]) {
-		let nextUnder = document.querySelectorAll(`[data-y]`)[currentY].querySelector(`[data-x='${currentX}']`);
-		if (nextUnder.getAttribute('data-empty') === 'yes') {
-			nextUnder.style.backgroundColor = '#874da8';
-			nextUnder.setAttribute('data-empty', 'no');
+	if (currentCell) {
+		let currentX = +currentCell.getAttribute('data-x');
+		let currentY = +currentCell.closest('[data-y]').getAttribute('data-y');
+		if (!!document.querySelectorAll(`[data-y]`)[currentY]) {
+			let nextUnder = document.querySelectorAll(`[data-y]`)[currentY].querySelector(`[data-x='${currentX}']`);
+			if (nextUnder.getAttribute('data-empty') === 'yes') {
+				nextUnder.style.backgroundColor = '#874da8';
+				nextUnder.setAttribute('data-empty', 'no');
+				currentCell.style.backgroundColor = null;
+				currentCell.setAttribute('data-empty', 'yes');
+			}
+		}
+	}
+}
+function moveLeft(currentCell = document.querySelector('[data-empty="no"]')) {
+	if (currentCell) {
+		if (!!currentCell.previousElementSibling) {
+			let prevSibling = currentCell.previousElementSibling;
+
+			prevSibling.style.backgroundColor = '#874da8';
+			prevSibling.setAttribute('data-empty', 'no');
 			currentCell.style.backgroundColor = null;
 			currentCell.setAttribute('data-empty', 'yes');
 		}
 	}
 }
-function moveLeft(currentCell = document.querySelector('[data-empty="no"]')) {
-	if (!!currentCell.previousElementSibling) {
-		let prevSibling = currentCell.previousElementSibling;
-
-		prevSibling.style.backgroundColor = '#874da8';
-		prevSibling.setAttribute('data-empty', 'no');
-		currentCell.style.backgroundColor = null;
-		currentCell.setAttribute('data-empty', 'yes');
-	}
-}
 function moveRight(currentCell = document.querySelector('[data-empty="no"]')) {
-	if (!!currentCell.nextElementSibling) {
-		let nextSibling = currentCell.nextElementSibling;
+	if (currentCell) {
+		if (!!currentCell.nextElementSibling) {
+			let nextSibling = currentCell.nextElementSibling;
 
-		nextSibling.style.backgroundColor = '#874da8';
-		nextSibling.setAttribute('data-empty', 'no');
-		currentCell.style.backgroundColor = null;
-		currentCell.setAttribute('data-empty', 'yes');
+			nextSibling.style.backgroundColor = '#874da8';
+			nextSibling.setAttribute('data-empty', 'no');
+			currentCell.style.backgroundColor = null;
+			currentCell.setAttribute('data-empty', 'yes');
+		}
 	}
 }
 
