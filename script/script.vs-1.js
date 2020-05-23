@@ -166,56 +166,99 @@ function triangleShape() {
 		'#874da8';
 }
 var currentCell = document.querySelector('[data-empty="no"]');
-let colConst;
-let rowConst;
-const arena = document.getElementById('game-arena');
-for (let i = 1; i <= 10; i++) {
-	rowConst = document.createElement('div');
-	rowConst.classList = 'arena-row';
-	rowConst.setAttribute('data-y', i);
-	rowConst.setAttribute('data-empty', 'yes');
-	arena.appendChild(rowConst);
-}
-const rows = document.getElementsByClassName('arena-row');
-
-for (let row of rows) {
-	for (let i = 1; i <= 5; i++) {
-		colConst = document.createElement('div');
-		colConst.classList = 'arena-colum';
-		colConst.setAttribute('data-x', i);
-		colConst.setAttribute('data-empty', 'yes');
-		row.appendChild(colConst);
+//drawing cells and buttons with listeners in IIFE
+(function() {
+	let colConst;
+	let rowConst;
+	const arena = document.getElementById('game-arena');
+	for (let i = 1; i <= 11; i++) {
+		rowConst = document.createElement('div');
+		rowConst.classList = 'arena-row';
+		rowConst.setAttribute('data-y', i);
+		rowConst.setAttribute('data-empty', 'yes');
+		arena.appendChild(rowConst);
 	}
-}
-const startPos = document.getElementById('start-place');
-let start = document.createElement('div');
-start.setAttribute('id', 'start');
-startPos.appendChild(start);
-start = document.getElementById('start');
-start.innerHTML = 'start';
-start.addEventListener('click', () => entryPoint());
-const stopPos = document.getElementById('stop-place');
-let stop = document.createElement('div');
-stop.setAttribute('id', 'stop');
-stopPos.appendChild(stop);
-stop = document.getElementById('stop');
-stop.innerHTML = 'stop';
-stop.addEventListener('click', clearCells);
-const left = document.createElement('div');
-document.getElementById('move-buttons').appendChild(left);
-left.classList.add('move');
-left.setAttribute('id', 'left');
-left.innerHTML = 'left';
-left.addEventListener('click', () => moveLeft());
-const down = document.createElement('div');
-document.getElementById('move-buttons').appendChild(down);
-down.classList.add('move');
-down.setAttribute('id', 'down');
-down.innerHTML = 'down';
-down.addEventListener('click', () => moveDown());
-const right = document.createElement('div');
-document.getElementById('move-buttons').appendChild(right);
-right.classList.add('move');
-right.setAttribute('id', 'right');
-right.innerHTML = 'right';
-right.addEventListener('click', () => moveRight());
+	const rows = document.getElementsByClassName('arena-row');
+
+	for (let row of rows) {
+		for (let i = 1; i <= 5; i++) {
+			colConst = document.createElement('div');
+			colConst.classList = 'arena-colum';
+			colConst.setAttribute('data-x', i);
+			colConst.setAttribute('data-empty', 'yes');
+			row.appendChild(colConst);
+		}
+	}
+
+	const startPos = document.getElementById('start-place');
+	let start = document.createElement('div');
+	start.setAttribute('id', 'start');
+	startPos.appendChild(start);
+	start = document.getElementById('start');
+	start.innerHTML = 'start';
+	start.addEventListener('click', () => entryPoint());
+	const stopPos = document.getElementById('stop-place');
+	let stop = document.createElement('div');
+	stop.setAttribute('id', 'stop');
+	stopPos.appendChild(stop);
+	stop = document.getElementById('stop');
+	stop.innerHTML = 'stop';
+	stop.addEventListener('click', clearCells);
+	const left = document.createElement('div');
+	document.getElementById('move-buttons').appendChild(left);
+	left.classList.add('move');
+	left.setAttribute('id', 'left');
+	left.innerHTML = 'left';
+	left.addEventListener('click', () => moveLeft());
+	const down = document.createElement('div');
+	document.getElementById('move-buttons').appendChild(down);
+	down.classList.add('move');
+	down.setAttribute('id', 'down');
+	down.innerHTML = 'down';
+	down.addEventListener('click', () => moveDown());
+	const right = document.createElement('div');
+	document.getElementById('move-buttons').appendChild(right);
+	right.classList.add('move');
+	right.setAttribute('id', 'right');
+	right.innerHTML = 'right';
+	right.addEventListener('click', () => moveRight());
+})();
+
+//draw shape buttons with lesteners
+(function() {
+	const square = document.createElement('div');
+	document.getElementById('shapes').appendChild(square);
+	square.setAttribute('id', 'square');
+	square.innerHTML = 'square';
+	square.addEventListener('click', () => sqrShape());
+	const line = document.createElement('div');
+	document.getElementById('shapes').appendChild(line);
+	line.setAttribute('id', 'line');
+	line.innerHTML = 'line';
+	line.addEventListener('click', () => lineShape());
+	const l = document.createElement('div');
+	document.getElementById('shapes').appendChild(l);
+	l.setAttribute('id', 'l_Shape');
+	l.innerHTML = 'L';
+	l.addEventListener('click', () => l_Shape());
+	const l_Rev = document.createElement('div');
+	document.getElementById('shapes').appendChild(l_Rev);
+	l_Rev.setAttribute('id', 'l_ShapeMirror');
+	l_Rev.innerHTML = 'L-rev';
+	l_Rev.addEventListener('click', () => l_ShapeMirror());
+	const z = document.createElement('div');
+	document.getElementById('shapes').appendChild(z);
+	z.setAttribute('id', 'z_Shape');
+	z.innerHTML = 'Z';
+	z.addEventListener('click', () => z_Shape());
+	const z_Rev = document.createElement('div');
+	document.getElementById('shapes').appendChild(z_Rev);
+	z_Rev.setAttribute('id', 'z_ShapeMirror');
+	z_Rev.innerHTML = 'Z-rev';
+	z_Rev.addEventListener('click', () => z_ShapeMirror());
+	const triangle = document.createElement('div');
+	document.getElementById('shapes').appendChild(triangle);
+	triangle.setAttribute('id', 'triangle');
+	triangle.innerHTML = 'triangle';
+	triangle.addEventListener('click', () => triangleShape());
+})();
