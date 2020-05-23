@@ -22,7 +22,7 @@ body {
 #start {
 	position: absolute;
 	left: 45%;
-	background-image: url(/icons/play-icon.png);
+	background-image: url(https://armensch11.github.io/tetris/icons/play-icon.png);
 	padding: 0px;
 	margin-left: 5px;
 	margin-right: 5px;
@@ -44,7 +44,7 @@ body {
 	position: absolute;
 	left: 45.5%;
 	top: 10%;
-	background-image: url(/icons/del-icon.png);
+	background-image: url(https://armensch11.github.io/tetris/icons/del-icon.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	padding: 0px;
@@ -73,14 +73,14 @@ body {
 	align-self: center;
 }
 #left {
-	background-image: url(/icons/left-icon.png);
+	background-image: url(https://armensch11.github.io/tetris/icons/left-icon.png);
 	background-size: ;
 }
 #down {
-	background-image: url(/icons/down-icon.png);
+	background-image: url(https://armensch11.github.io/tetris/icons/down-icon.png);
 }
 #right {
-	background-image: url(/icons/right-icon.png);
+	background-image: url(https://armensch11.github.io/tetris/icons/right-icon.png);
 }
 
 .move {
