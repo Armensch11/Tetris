@@ -116,7 +116,7 @@ body {
 #triangle {
 	padding: 0px;
 	margin-top: 5px;
-	margin-bottom: 5px;
+	margin-bottom: 15px;
 	width: 80px;
 	height: 30px;
 	align-self: center;
@@ -124,8 +124,8 @@ body {
 	text-align: center;
 	line-height: 30px;
 	box-sizing: border-box;
-	background-color: rgb(85, 141, 136);
-	color: ivory;
+	background-color: none;
+	color: rgb(44, 44, 43);
 }
 #square:hover,
 #line:hover,
@@ -134,7 +134,9 @@ body {
 #z_Shape:hover,
 #z_ShapeMirror:hover,
 #triangle:hover {
+	transition: 0.5s;
 	cursor: pointer;
-	background-color: rgba(240, 217, 17, 0.767);
-	color: rgb(104, 104, 103);
+	border-radius: 10%;
+	background-color: rgba(196, 196, 193, 0.767);
+	color: rgb(172, 57, 4);
 }
