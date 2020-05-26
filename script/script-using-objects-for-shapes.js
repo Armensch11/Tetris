@@ -3,7 +3,7 @@
 	let rowConst;
 
 	const arena = document.getElementById('game-arena');
-	for (let i = 1; i <= 22; i++) {
+	for (let i = 1; i <= 20; i++) {
 		rowConst = document.createElement('div');
 		rowConst.classList = 'arena-row';
 		rowConst.setAttribute('data-y', i);
@@ -14,7 +14,7 @@
 	let childArr = [];
 	let domArr = [];
 	for (let row of rows) {
-		for (let i = 1; i <= 7; i++) {
+		for (let i = 1; i <= 11; i++) {
 			colConst = document.createElement('div');
 			colConst.classList = 'arena-colum';
 			colConst.setAttribute('data-x', i);
@@ -34,8 +34,7 @@
 	start = document.getElementById('start');
 	// start.innerHTML = 'start';
 	start.addEventListener('click', () => {
-		triangleObj = createTriangle();
-		let stop = setInterval(() => triangleObj.moveDown(), 800);
+		let stop = setInterval(() => currentShape.moveDown(), 800);
 		setTimeout(clearInterval, 10000, stop);
 	});
 	const stopPos = document.getElementById('stop-place');
@@ -45,24 +44,24 @@
 	stop = document.getElementById('stop');
 	// stop.innerHTML = 'clear';
 	stop.addEventListener('click', clearCells);
-	const left = document.createElement('div');
-	document.getElementById('move-buttons').appendChild(left);
-	left.classList.add('move');
-	left.setAttribute('id', 'left');
-	// left.innerHTML = 'left';
-	left.addEventListener('click', () => moveLeft());
-	const down = document.createElement('div');
-	document.getElementById('move-buttons').appendChild(down);
-	down.classList.add('move');
-	down.setAttribute('id', 'down');
-	// down.innerHTML = 'down';
-	down.addEventListener('click', () => moveDown());
-	const right = document.createElement('div');
-	document.getElementById('move-buttons').appendChild(right);
-	right.classList.add('move');
-	right.setAttribute('id', 'right');
-	// right.innerHTML = 'right';
-	right.addEventListener('click', () => moveRight());
+	// const left = document.createElement('div');
+	// document.getElementById('move-buttons').appendChild(left);
+	// left.classList.add('move');
+	// left.setAttribute('id', 'left');
+	// // left.innerHTML = 'left';
+	// left.addEventListener('click', () => moveLeft());
+	// const down = document.createElement('div');
+	// document.getElementById('move-buttons').appendChild(down);
+	// down.classList.add('move');
+	// down.setAttribute('id', 'down');
+	// // down.innerHTML = 'down';
+	// down.addEventListener('click', () => moveDown());
+	// const right = document.createElement('div');
+	// document.getElementById('move-buttons').appendChild(right);
+	// right.classList.add('move');
+	// right.setAttribute('id', 'right');
+	// // right.innerHTML = 'right';
+	// right.addEventListener('click', () => moveRight());
 })();
 let currentShape;
 (function() {
@@ -126,7 +125,7 @@ function clearCells() {
 }
 
 // let obj_Triangle = createTriangle();
-function createTriangle(x = 3, y = 2, shapeTriangle = {}) {
+function createTriangle(x = 5, y = 1, shapeTriangle = {}) {
 	shapeTriangle.position = 1;
 
 	shapeTriangle.startRow = document.querySelector(`[data-y="${y}"]`);
@@ -600,7 +599,7 @@ function createTriangle(x = 3, y = 2, shapeTriangle = {}) {
 	return shapeTriangle;
 }
 // let obj_L = createL();
-function createL(x = 3, y = 7, shapeL = {}) {
+function createL(x = 5, y = 3, shapeL = {}) {
 	shapeL.position = 1;
 
 	shapeL.startRow = document.querySelector(`[data-y="${y}"]`);
@@ -1091,7 +1090,7 @@ function createL(x = 3, y = 7, shapeL = {}) {
 }
 
 // let obj_L_Rev = createL_Rev();
-function createL_Rev(x = 3, y = 7, shapeL_Rev = {}) {
+function createL_Rev(x = 5, y = 3, shapeL_Rev = {}) {
 	shapeL_Rev.position = 1;
 
 	shapeL_Rev.startRow = document.querySelector(`[data-y="${y}"]`);
@@ -1582,7 +1581,7 @@ function createL_Rev(x = 3, y = 7, shapeL_Rev = {}) {
 }
 
 // let obj_Z = createZ();
-function createZ(x = 3, y = 7, shapeZ = {}) {
+function createZ(x = 5, y = 1, shapeZ = {}) {
 	shapeZ.position = 1;
 
 	shapeZ.startRow = document.querySelector(`[data-y="${y}"]`);
@@ -1866,7 +1865,7 @@ function createZ(x = 3, y = 7, shapeZ = {}) {
 }
 
 // let obj_Z_Rev = createZ_Rev();
-function createZ_Rev(x = 3, y = 7, shapeZ_Rev = {}) {
+function createZ_Rev(x = 5, y = 1, shapeZ_Rev = {}) {
 	shapeZ_Rev.position = 1;
 
 	shapeZ_Rev.startRow = document.querySelector(`[data-y="${y}"]`);
@@ -2143,7 +2142,7 @@ function createZ_Rev(x = 3, y = 7, shapeZ_Rev = {}) {
 	return shapeZ_Rev;
 }
 // let obj_Cube = createCube();
-function createCube(x = 3, y = 7, shapeCube = {}) {
+function createCube(x = 5, y = 1, shapeCube = {}) {
 	shapeCube.position = 1;
 
 	shapeCube.startRow = document.querySelector(`[data-y="${y}"]`);
@@ -2306,7 +2305,7 @@ function createCube(x = 3, y = 7, shapeCube = {}) {
 	return shapeCube;
 }
 // let obj_Line = createLine();
-function createLine(x = 3, y = 7, shapeLine = {}) {
+function createLine(x = 5, y = 1, shapeLine = {}) {
 	shapeLine.position = 1;
 
 	shapeLine.startRow = document.querySelector(`[data-y="${y}"]`);
