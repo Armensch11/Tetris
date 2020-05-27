@@ -1518,7 +1518,21 @@ function createL_Rev(x = 5, y = 3, shapeL_Rev = {}) {
 					p3_toRight.getAttribute('data-empty') === 'yes' &&
 					p4_toRight.getAttribute('data-empty') === 'yes'
 				) {
-					paint();
+					this.point3.setAttribute('data-empty', 'yes');
+					this.point3.style.backgroundColor = null;
+					this.point3 = p3_toRight;
+					this.point3.setAttribute('data-empty', 'no');
+					this.point3.style.backgroundColor = '#874da8';
+					this.point2.setAttribute('data-empty', 'yes');
+					this.point2.style.backgroundColor = null;
+					this.point2 = p2_toRight;
+					this.point2.setAttribute('data-empty', 'no');
+					this.point2.style.backgroundColor = '#874da8';
+					this.point1.setAttribute('data-empty', 'yes');
+					this.point1.style.backgroundColor = null;
+					this.point1 = p1_toRight;
+					this.point1.setAttribute('data-empty', 'no');
+					this.point1.style.backgroundColor = '#874da8';
 					this.point4.setAttribute('data-empty', 'yes');
 					this.point4.style.backgroundColor = null;
 					this.point4 = p4_toRight;
@@ -1555,21 +1569,7 @@ function createL_Rev(x = 5, y = 3, shapeL_Rev = {}) {
 					this.point4.setAttribute('data-empty', 'no');
 					this.point4.style.backgroundColor = '#874da8';
 
-					this.point1.setAttribute('data-empty', 'yes');
-					this.point1.style.backgroundColor = null;
-					this.point1 = p1_toRight;
-					this.point1.setAttribute('data-empty', 'no');
-					this.point1.style.backgroundColor = '#874da8';
-					this.point2.setAttribute('data-empty', 'yes');
-					this.point2.style.backgroundColor = null;
-					this.point2 = p2_toRight;
-					this.point2.setAttribute('data-empty', 'no');
-					this.point2.style.backgroundColor = '#874da8';
-					this.point3.setAttribute('data-empty', 'yes');
-					this.point3.style.backgroundColor = null;
-					this.point3 = p3_toRight;
-					this.point3.setAttribute('data-empty', 'no');
-					this.point3.style.backgroundColor = '#874da8';
+					paint();
 				}
 			}
 		}
