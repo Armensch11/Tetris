@@ -65,11 +65,11 @@
 })();
 let currentShape;
 (function() {
-	const square = document.createElement('div');
-	document.getElementById('shapes').appendChild(square);
-	square.setAttribute('id', 'square');
-	square.innerHTML = 'square';
-	square.addEventListener('click', () => (currentShape = createCube()));
+	const cube = document.createElement('div');
+	document.getElementById('shapes').appendChild(cube);
+	cube.setAttribute('id', 'cube');
+	cube.innerHTML = 'cube';
+	cube.addEventListener('click', () => (currentShape = createCube()));
 	const line = document.createElement('div');
 	document.getElementById('shapes').appendChild(line);
 	line.setAttribute('id', 'line');
@@ -640,10 +640,10 @@ function createL(x = 5, y = 3, shapeL = {}) {
 		if (diff_x_p4 === 0) {
 			if (diff_y_p4 > 0) {
 				if (
-					true
-					// document
-					// 	.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-					// 	.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - diff_y_p3}"]`)
+					document
+						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - diff_y_p4}"]`) &&
+					document.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p3)}"]`)
 				) {
 					this.point4.style.backgroundColor = null;
 					this.point4.setAttribute('data-empty', 'yes');
@@ -672,10 +672,9 @@ function createL(x = 5, y = 3, shapeL = {}) {
 				}
 			} else {
 				if (
-					true
-					// document
-					// 	.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-					// 	.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - diff_y_p3}"]`)
+					document
+						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p4)}"]`)
 				) {
 					this.point4.style.backgroundColor = null;
 					this.point4.setAttribute('data-empty', 'yes');
@@ -707,10 +706,10 @@ function createL(x = 5, y = 3, shapeL = {}) {
 		if (diff_y_p4 === 0) {
 			if (diff_x_p4 > 0) {
 				if (
-					true
-					// document
-					// 	.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-					// 	.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - diff_y_p3}"]`)
+					document
+						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p3)}"]`) &&
+					document.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + diff_x_p4}"]`)
 				) {
 					this.point4.style.backgroundColor = null;
 					this.point4.setAttribute('data-empty', 'yes');
@@ -739,10 +738,9 @@ function createL(x = 5, y = 3, shapeL = {}) {
 				}
 			} else {
 				if (
-					true
-					// document
-					// 	.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-					// 	.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - diff_y_p3}"]`)
+					document
+						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p3)}"]`)
 				) {
 					this.point4.style.backgroundColor = null;
 					this.point4.setAttribute('data-empty', 'yes');
@@ -1163,10 +1161,8 @@ function createL_Rev(x = 5, y = 3, shapeL_Rev = {}) {
 				}
 			} else {
 				if (
-					true
-					// document
-					// 	.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-					// 	.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - diff_y_p3}"]`)
+					document.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p2)}"]`) &&
+					document.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p3)}"]`)
 				) {
 					this.point2.style.backgroundColor = null;
 					this.point2.setAttribute('data-empty', 'yes');
@@ -1198,10 +1194,12 @@ function createL_Rev(x = 5, y = 3, shapeL_Rev = {}) {
 		if (diff_y_p4 === 0) {
 			if (diff_x_p4 > 0) {
 				if (
-					true
-					// document
-					// 	.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-					// 	.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - diff_y_p3}"]`)
+					document
+						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p2)}"]`) &&
+					document
+						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p3)}"]`)
 				) {
 					this.point2.style.backgroundColor = null;
 					this.point2.setAttribute('data-empty', 'yes');
@@ -1230,10 +1228,9 @@ function createL_Rev(x = 5, y = 3, shapeL_Rev = {}) {
 				}
 			} else {
 				if (
-					true
-					// document
-					// 	.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-					// 	.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - diff_y_p3}"]`)
+					document
+						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p3)}"]`)
 				) {
 					this.point2.style.backgroundColor = null;
 					this.point2.setAttribute('data-empty', 'yes');
@@ -1621,10 +1618,12 @@ function createZ(x = 5, y = 1, shapeZ = {}) {
 
 		if (diff_y_p2 === 0 && diff_x_p2 < 0) {
 			if (
-				true
+				document
+					.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p3)}"]`)
+					.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_x_p3)}"]`)
 				// document
 				// 	.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-				// 	.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - diff_y_p3}"]`)
+				// 	.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p4)}"]`)
 			) {
 				this.point3.style.backgroundColor = null;
 				this.point3.setAttribute('data-empty', 'yes');
@@ -1938,10 +1937,9 @@ function createZ_Rev(x = 5, y = 1, shapeZ_Rev = {}) {
 		}
 		if (diff_y_p2 === 0 && diff_x_p2 < 0) {
 			if (
-				true
-				// document
-				// 	.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-				// 	.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - diff_y_p3}"]`)
+				document
+					.querySelector(`[data-y="${+this.point1.getAttribute('data-y')}"]`)
+					.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p4)}"]`)
 			) {
 				this.point4.style.backgroundColor = null;
 				this.point4.setAttribute('data-empty', 'yes');
@@ -2344,10 +2342,8 @@ function createLine(x = 5, y = 1, shapeLine = {}) {
 
 		if (diff_y_p2 === 0 && diff_x_p2 > 0) {
 			if (
-				true
-				// document
-				// 	.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-				// 	.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - diff_y_p3}"]`)
+				document.querySelector(`[data-y="${+this.point1.getAttribute('data-y') - Math.abs(diff_x_p4)}"]`) &&
+				document.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p3)}"]`)
 			) {
 				this.point2.style.backgroundColor = null;
 				this.point2.setAttribute('data-empty', 'yes');
@@ -2377,10 +2373,15 @@ function createLine(x = 5, y = 1, shapeLine = {}) {
 		}
 		if (diff_x_p2 === 0 && diff_y_p2 > 0) {
 			if (
-				true
-				// document
-				// 	.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-				// 	.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - diff_y_p3}"]`)
+				document
+					.querySelector(`[data-y="${+this.point1.getAttribute('data-y')}"]`)
+					.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p4)}"]`) &&
+				document
+					.querySelector(`[data-y="${+this.point1.getAttribute('data-y')}"]`)
+					.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p3)}"]`) &&
+				document
+					.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+					.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p2)}"]`)
 			) {
 				this.point4.style.backgroundColor = null;
 				this.point4.setAttribute('data-empty', 'yes');
