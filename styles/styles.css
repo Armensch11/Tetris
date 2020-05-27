@@ -107,7 +107,7 @@ body {
 	position: absolute;
 	left: 65%;
 }
-#square,
+#cube,
 #line,
 #l_Shape,
 #l_ShapeMirror,
@@ -127,7 +127,7 @@ body {
 	background-color: none;
 	color: rgb(44, 44, 43);
 }
-#square:hover,
+#cube:hover,
 #line:hover,
 #l_Shape:hover,
 #l_ShapeMirror:hover,
