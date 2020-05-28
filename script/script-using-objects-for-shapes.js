@@ -2610,3 +2610,36 @@ addEventListener('keydown', function() {
 			break;
 	}
 });
+function isLineFull(y = 20) {
+	if (y === 1) {
+		return;
+	}
+
+	let upper = Array.from(document.querySelector(`[data-y='${y - 1}']`).childNodes);
+	let current = Array.from(document.querySelector(`[data-y='${y}']`).childNodes);
+	if (current.filter((el) => el.getAttribute('data-empty') === 'yes').length === 0) {
+		current.forEach((el, index) => {
+			el.style.backgroundColor = upper[index].style.backgroundColor;
+			el.setAttribute('data-empty', `${upper[index].getAttribute('data-empty')}`);
+		});
+		upper.forEach((el) => {
+			el.style.backgroundColor = null;
+			el.setAttribute('data-empty', 'yes');
+		});
+	}
+	if (current.filter((el) => el.getAttribute('data-empty') === 'no').length === 0) {
+		while (upper.filter((el) => el.getAttribute('data-empty') === 'no').length > 0) {
+			current.forEach((el, index) => {
+				el.style.backgroundColor = upper[index].style.backgroundColor;
+				el.setAttribute('data-empty', `${upper[index].getAttribute('data-empty')}`);
+			});
+			upper.forEach((el) => {
+				el.style.backgroundColor = null;
+				el.setAttribute('data-empty', 'yes');
+			});
+		}
+	}
+
+	y--;
+	return isLineFull(y);
+}
