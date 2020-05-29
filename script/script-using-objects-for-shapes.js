@@ -35,7 +35,7 @@
 	// start.innerHTML = 'start';
 	start.addEventListener('click', () => {
 		let stop = setInterval(() => currentShape.moveDown(), 500);
-		setTimeout(() => clearInterval(stop), 10000);
+		// setTimeout(() => clearInterval(stop), 3000);
 	});
 	const stopPos = document.getElementById('stop-place');
 	let stop = document.createElement('div');
@@ -67,7 +67,9 @@ let currentShape;
 function randShape() {
 	let shapeArr = [ createCube, createLine, createL, createL_Rev, createZ, createZ_Rev, createTriangle ];
 	let randIndex = Math.floor(Math.random() * shapeArr.length);
-	console.log(randIndex);
+	randIndex === 7 ? (randIndex = 6) : randIndex;
+
+	// console.log(randIndex);
 	return shapeArr[randIndex]();
 }
 
@@ -137,7 +139,7 @@ function clearCells() {
 }
 
 // let obj_Triangle = createTriangle();
-function createTriangle(x = 5, y = 1, shapeTriangle = {}) {
+function createTriangle(x = 5, y = 2, shapeTriangle = {}) {
 	shapeTriangle.position = 1;
 
 	shapeTriangle.startRow = document.querySelector(`[data-y="${y}"]`);
@@ -1680,7 +1682,7 @@ function createL_Rev(x = 5, y = 3, shapeL_Rev = {}) {
 }
 
 // let obj_Z = createZ();
-function createZ(x = 5, y = 1, shapeZ = {}) {
+function createZ(x = 5, y = 2, shapeZ = {}) {
 	shapeZ.position = 1;
 
 	shapeZ.startRow = document.querySelector(`[data-y="${y}"]`);
@@ -1981,7 +1983,7 @@ function createZ(x = 5, y = 1, shapeZ = {}) {
 }
 
 // let obj_Z_Rev = createZ_Rev();
-function createZ_Rev(x = 5, y = 1, shapeZ_Rev = {}) {
+function createZ_Rev(x = 5, y = 2, shapeZ_Rev = {}) {
 	shapeZ_Rev.position = 1;
 
 	shapeZ_Rev.startRow = document.querySelector(`[data-y="${y}"]`);
@@ -2769,54 +2771,33 @@ addEventListener('keydown', function() {
 	}
 });
 
-function deleteFull(
-	y = 20,
-	rowDel = 0
-
-	// lower = Array.from(document.querySelector(`[data-y='${y + 1}']`).childNodes)
-) {
-	if (y < 1) {
-		for (let i = 0; i <= rowDel; i++) {
-			deleteEmpty();
-		}
-		return;
-	}
-	if (document.querySelector(`[data-y='${y}']`)) {
-		let current = Array.from(document.querySelector(`[data-y='${y}']`).childNodes);
-		if (!current.filter((el) => el.getAttribute('data-empty') === 'yes').length) {
-			current.forEach((el) => {
-				el.style.backgroundColor = null;
-				el.setAttribute('data-empty', `yes`);
-			});
-			rowDel++;
-		}
-		y--;
-		deleteFull(y, rowDel);
-	}
-}
-function deleteEmpty(y = 1) {
+function checkFull(y = 4) {
 	if (y > 20) {
 		return;
 	}
-	if (document.querySelector(`[data-y='${y}']`)) {
-		let current = Array.from(document.querySelector(`[data-y='${y}']`).childNodes);
-		if (document.querySelector(`[data-y='${y + 1}']`)) {
-			let lower = Array.from(document.querySelector(`[data-y='${y + 1}']`).childNodes);
-			if (!lower.filter((el) => el.getAttribute('data-empty') === 'no').length) {
-				if (current.filter((el) => el.getAttribute('data-empty') === 'no').length) {
-					lower.forEach((el, index) => {
-						el.style.backgroundColor = current[index].style.backgroundColor;
-						el.setAttribute('data-empty', `${current[index].getAttribute('data-empty')}`);
-					});
+	let current = Array.from(document.querySelector(`[data-y='${y}']`).childNodes);
+	let upper = Array.from(document.querySelector(`[data-y='${y - 1}']`).childNodes);
+	if (current.filter((el) => el.getAttribute('data-empty') === 'yes').length === 0) {
+		current.forEach((el, index) => {
+			el.style.backgroundColor = upper[index].style.backgroundColor;
+			el.setAttribute('data-empty', `${upper[index].getAttribute('data-empty')}`);
+		});
 
-					current.forEach((el) => {
-						el.style.backgroundColor = null;
-						el.setAttribute('data-empty', 'yes');
-					});
-				}
-			}
-			y++;
-			deleteEmpty(y);
+		let newY = y;
+		while (newY >= 3) {
+			let nextUpper = Array.from(document.querySelector(`[data-y='${newY - 2}']`).childNodes);
+			let nextLower = Array.from(document.querySelector(`[data-y='${newY - 1}']`).childNodes);
+			nextLower.forEach((el, index) => {
+				el.style.backgroundColor = nextUpper[index].style.backgroundColor;
+				el.setAttribute('data-empty', `${nextUpper[index].getAttribute('data-empty')}`);
+			});
+			nextUpper.forEach((el) => {
+				el.style.backgroundColor = null;
+				el.setAttribute('data-empty', 'yes');
+			});
+			newY--;
 		}
 	}
+	y++;
+	return checkFull(y);
 }
