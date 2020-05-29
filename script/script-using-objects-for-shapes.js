@@ -33,10 +33,31 @@
 	startPos.appendChild(start);
 	start = document.getElementById('start');
 	// start.innerHTML = 'start';
+	let stopID;
+	let arrY = [];
 	start.addEventListener('click', () => {
-		let stop = setInterval(() => currentShape.moveDown(), 500);
+		shapeGen();
+		stopID = setInterval(() => {
+			currentShape.moveDown();
+			arrY.push(+currentShape.point1.getAttribute('data-y'));
+			console.log(currentShape.point1.getAttribute('data-y'));
+			if (arrY[arrY.length - 1] === arrY[arrY.length - 2]) {
+				stopInterval();
+				arrY = [];
+				(() => {
+					checkFull();
+					shapeGen();
+				})();
+			}
+		}, 500);
 		// setTimeout(() => clearInterval(stop), 3000);
 	});
+	function shapeGen() {
+		currentShape = randShape();
+	}
+	function stopInterval() {
+		clearInterval(stopID);
+	}
 	const stopPos = document.getElementById('stop-place');
 	let stop = document.createElement('div');
 	stop.setAttribute('id', 'stop');
