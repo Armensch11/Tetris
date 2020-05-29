@@ -192,29 +192,36 @@ function createTriangle(x = 5, y = 1, shapeTriangle = {}) {
 				this.position === 5 ? (this.position = 1) : this.position;
 			} else {
 				if (document.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + diff_x_p2}"]`)) {
-					this.point2.style.backgroundColor = null;
-					this.point2.setAttribute('data-empty', 'yes');
-					this.point2 = document
-						.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + diff_x_p2}"]`)
-						.querySelector(`[data-x="${this.point1.getAttribute('data-x')}"]`);
-					this.point2.style.backgroundColor = '#874da8';
-					this.point2.setAttribute('data-empty', 'no');
-					this.point4.style.backgroundColor = null;
-					this.point4.setAttribute('data-empty', 'yes');
-					this.point4 = document
-						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p4)}"]`);
-					this.point4.style.backgroundColor = '#874da8';
-					this.point4.setAttribute('data-empty', 'no');
-					this.point3.style.backgroundColor = null;
-					this.point3.setAttribute('data-empty', 'yes');
-					this.point3 = document
-						.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + diff_x_p3}"]`)
-						.querySelector(`[data-x="${this.point1.getAttribute('data-x')}"]`);
-					this.point3.style.backgroundColor = '#874da8';
-					this.point3.setAttribute('data-empty', 'no');
-					this.position++;
-					this.position === 5 ? (this.position = 1) : this.position;
+					if (
+						document
+							.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + diff_x_p2}"]`)
+							.querySelector(`[data-x="${this.point1.getAttribute('data-x')}"]`)
+							.getAttribute('data-empty') === 'yes'
+					) {
+						this.point2.style.backgroundColor = null;
+						this.point2.setAttribute('data-empty', 'yes');
+						this.point2 = document
+							.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + diff_x_p2}"]`)
+							.querySelector(`[data-x="${this.point1.getAttribute('data-x')}"]`);
+						this.point2.style.backgroundColor = '#874da8';
+						this.point2.setAttribute('data-empty', 'no');
+						this.point4.style.backgroundColor = null;
+						this.point4.setAttribute('data-empty', 'yes');
+						this.point4 = document
+							.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p4)}"]`);
+						this.point4.style.backgroundColor = '#874da8';
+						this.point4.setAttribute('data-empty', 'no');
+						this.point3.style.backgroundColor = null;
+						this.point3.setAttribute('data-empty', 'yes');
+						this.point3 = document
+							.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + diff_x_p3}"]`)
+							.querySelector(`[data-x="${this.point1.getAttribute('data-x')}"]`);
+						this.point3.style.backgroundColor = '#874da8';
+						this.point3.setAttribute('data-empty', 'no');
+						this.position++;
+						this.position === 5 ? (this.position = 1) : this.position;
+					}
 				}
 			}
 		}
@@ -225,29 +232,36 @@ function createTriangle(x = 5, y = 1, shapeTriangle = {}) {
 						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
 						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - diff_y_p2}"]`)
 				) {
-					this.point2.style.backgroundColor = null;
-					this.point2.setAttribute('data-empty', 'yes');
-					this.point2 = document
-						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - diff_y_p2}"]`);
-					this.point2.style.backgroundColor = '#874da8';
-					this.point2.setAttribute('data-empty', 'no');
-					this.point4.style.backgroundColor = null;
-					this.point4.setAttribute('data-empty', 'yes');
-					this.point4 = document
-						.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + diff_x_p4}"]`)
-						.querySelector(`[data-x="${this.point1.getAttribute('data-x')}"]`);
-					this.point4.style.backgroundColor = '#874da8';
-					this.point4.setAttribute('data-empty', 'no');
-					this.point3.style.backgroundColor = null;
-					this.point3.setAttribute('data-empty', 'yes');
-					this.point3 = document
-						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p3)}"]`);
-					this.point3.style.backgroundColor = '#874da8';
-					this.point3.setAttribute('data-empty', 'no');
-					this.position++;
-					this.position === 5 ? (this.position = 1) : this.position;
+					if (
+						document
+							.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - diff_y_p2}"]`)
+							.getAttribute('data-empty') === 'yes'
+					) {
+						this.point2.style.backgroundColor = null;
+						this.point2.setAttribute('data-empty', 'yes');
+						this.point2 = document
+							.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - diff_y_p2}"]`);
+						this.point2.style.backgroundColor = '#874da8';
+						this.point2.setAttribute('data-empty', 'no');
+						this.point4.style.backgroundColor = null;
+						this.point4.setAttribute('data-empty', 'yes');
+						this.point4 = document
+							.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + diff_x_p4}"]`)
+							.querySelector(`[data-x="${this.point1.getAttribute('data-x')}"]`);
+						this.point4.style.backgroundColor = '#874da8';
+						this.point4.setAttribute('data-empty', 'no');
+						this.point3.style.backgroundColor = null;
+						this.point3.setAttribute('data-empty', 'yes');
+						this.point3 = document
+							.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p3)}"]`);
+						this.point3.style.backgroundColor = '#874da8';
+						this.point3.setAttribute('data-empty', 'no');
+						this.position++;
+						this.position === 5 ? (this.position = 1) : this.position;
+					}
 				}
 			} else {
 				if (
@@ -255,29 +269,36 @@ function createTriangle(x = 5, y = 1, shapeTriangle = {}) {
 						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
 						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p2)}"]`)
 				) {
-					this.point2.style.backgroundColor = null;
-					this.point2.setAttribute('data-empty', 'yes');
-					this.point2 = document
-						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p2)}"]`);
-					this.point2.style.backgroundColor = '#874da8';
-					this.point2.setAttribute('data-empty', 'no');
-					this.point4.style.backgroundColor = null;
-					this.point4.setAttribute('data-empty', 'yes');
-					this.point4 = document
-						.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + diff_x_p4}"]`)
-						.querySelector(`[data-x="${this.point1.getAttribute('data-x')}"]`);
-					this.point4.style.backgroundColor = '#874da8';
-					this.point4.setAttribute('data-empty', 'no');
-					this.point3.style.backgroundColor = null;
-					this.point3.setAttribute('data-empty', 'yes');
-					this.point3 = document
-						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - diff_y_p3}"]`);
-					this.point3.style.backgroundColor = '#874da8';
-					this.point3.setAttribute('data-empty', 'no');
-					this.position++;
-					this.position === 5 ? (this.position = 1) : this.position;
+					if (
+						document
+							.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p2)}"]`)
+							.getAttribute('data-empty') === 'yes'
+					) {
+						this.point2.style.backgroundColor = null;
+						this.point2.setAttribute('data-empty', 'yes');
+						this.point2 = document
+							.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p2)}"]`);
+						this.point2.style.backgroundColor = '#874da8';
+						this.point2.setAttribute('data-empty', 'no');
+						this.point4.style.backgroundColor = null;
+						this.point4.setAttribute('data-empty', 'yes');
+						this.point4 = document
+							.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + diff_x_p4}"]`)
+							.querySelector(`[data-x="${this.point1.getAttribute('data-x')}"]`);
+						this.point4.style.backgroundColor = '#874da8';
+						this.point4.setAttribute('data-empty', 'no');
+						this.point3.style.backgroundColor = null;
+						this.point3.setAttribute('data-empty', 'yes');
+						this.point3 = document
+							.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - diff_y_p3}"]`);
+						this.point3.style.backgroundColor = '#874da8';
+						this.point3.setAttribute('data-empty', 'no');
+						this.position++;
+						this.position === 5 ? (this.position = 1) : this.position;
+					}
 				}
 			}
 		}
@@ -645,30 +666,41 @@ function createL(x = 5, y = 3, shapeL = {}) {
 						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - diff_y_p4}"]`) &&
 					document.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p3)}"]`)
 				) {
-					this.point4.style.backgroundColor = null;
-					this.point4.setAttribute('data-empty', 'yes');
-					this.point4 = document
-						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - diff_y_p4}"]`);
-					this.point4.style.backgroundColor = '#874da8';
-					this.point4.setAttribute('data-empty', 'no');
-					this.point2.style.backgroundColor = null;
-					this.point2.setAttribute('data-empty', 'yes');
-					this.point2 = document
-						.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p2)}"]`)
-						.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`);
-					this.point2.style.backgroundColor = '#874da8';
-					this.point2.setAttribute('data-empty', 'no');
+					if (
+						document
+							.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - diff_y_p4}"]`)
+							.getAttribute('data-empty') === 'yes' &&
+						document
+							.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p3)}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`)
+							.getAttribute('data-empty') === 'yes'
+					) {
+						this.point4.style.backgroundColor = null;
+						this.point4.setAttribute('data-empty', 'yes');
+						this.point4 = document
+							.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - diff_y_p4}"]`);
+						this.point4.style.backgroundColor = '#874da8';
+						this.point4.setAttribute('data-empty', 'no');
+						this.point2.style.backgroundColor = null;
+						this.point2.setAttribute('data-empty', 'yes');
+						this.point2 = document
+							.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p2)}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`);
+						this.point2.style.backgroundColor = '#874da8';
+						this.point2.setAttribute('data-empty', 'no');
 
-					this.point3.style.backgroundColor = null;
-					this.point3.setAttribute('data-empty', 'yes');
-					this.point3 = document
-						.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p3)}"]`)
-						.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`);
-					this.point3.style.backgroundColor = '#874da8';
-					this.point3.setAttribute('data-empty', 'no');
-					this.position++;
-					this.position === 5 ? (this.position = 1) : this.position;
+						this.point3.style.backgroundColor = null;
+						this.point3.setAttribute('data-empty', 'yes');
+						this.point3 = document
+							.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p3)}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`);
+						this.point3.style.backgroundColor = '#874da8';
+						this.point3.setAttribute('data-empty', 'no');
+						this.position++;
+						this.position === 5 ? (this.position = 1) : this.position;
+					}
 				}
 			} else {
 				if (
@@ -676,30 +708,37 @@ function createL(x = 5, y = 3, shapeL = {}) {
 						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
 						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p4)}"]`)
 				) {
-					this.point4.style.backgroundColor = null;
-					this.point4.setAttribute('data-empty', 'yes');
-					this.point4 = document
-						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p4)}"]`);
-					this.point4.style.backgroundColor = '#874da8';
-					this.point4.setAttribute('data-empty', 'no');
-					this.point2.style.backgroundColor = null;
-					this.point2.setAttribute('data-empty', 'yes');
-					this.point2 = document
-						.querySelector(`[data-y="${+this.point1.getAttribute('data-y') - Math.abs(diff_x_p2)}"]`)
-						.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`);
-					this.point2.style.backgroundColor = '#874da8';
-					this.point2.setAttribute('data-empty', 'no');
+					if (
+						document
+							.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p4)}"]`)
+							.getAttribute('data-empty') === 'yes'
+					) {
+						this.point4.style.backgroundColor = null;
+						this.point4.setAttribute('data-empty', 'yes');
+						this.point4 = document
+							.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p4)}"]`);
+						this.point4.style.backgroundColor = '#874da8';
+						this.point4.setAttribute('data-empty', 'no');
+						this.point2.style.backgroundColor = null;
+						this.point2.setAttribute('data-empty', 'yes');
+						this.point2 = document
+							.querySelector(`[data-y="${+this.point1.getAttribute('data-y') - Math.abs(diff_x_p2)}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`);
+						this.point2.style.backgroundColor = '#874da8';
+						this.point2.setAttribute('data-empty', 'no');
 
-					this.point3.style.backgroundColor = null;
-					this.point3.setAttribute('data-empty', 'yes');
-					this.point3 = document
-						.querySelector(`[data-y="${this.point1.getAttribute('data-y') - Math.abs(diff_x_p3)}"]`)
-						.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`);
-					this.point3.style.backgroundColor = '#874da8';
-					this.point3.setAttribute('data-empty', 'no');
-					this.position++;
-					this.position === 5 ? (this.position = 1) : this.position;
+						this.point3.style.backgroundColor = null;
+						this.point3.setAttribute('data-empty', 'yes');
+						this.point3 = document
+							.querySelector(`[data-y="${this.point1.getAttribute('data-y') - Math.abs(diff_x_p3)}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`);
+						this.point3.style.backgroundColor = '#874da8';
+						this.point3.setAttribute('data-empty', 'no');
+						this.position++;
+						this.position === 5 ? (this.position = 1) : this.position;
+					}
 				}
 			}
 		}
@@ -711,30 +750,41 @@ function createL(x = 5, y = 3, shapeL = {}) {
 						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p3)}"]`) &&
 					document.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + diff_x_p4}"]`)
 				) {
-					this.point4.style.backgroundColor = null;
-					this.point4.setAttribute('data-empty', 'yes');
-					this.point4 = document
-						.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + diff_x_p4}"]`)
-						.querySelector(`[data-x="${this.point1.getAttribute('data-x')}"]`);
-					this.point4.style.backgroundColor = '#874da8';
-					this.point4.setAttribute('data-empty', 'no');
-					this.point2.style.backgroundColor = null;
-					this.point2.setAttribute('data-empty', 'yes');
-					this.point2 = document
-						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p2)}"]`);
-					this.point2.style.backgroundColor = '#874da8';
-					this.point2.setAttribute('data-empty', 'no');
+					if (
+						document
+							.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + diff_x_p4}"]`)
+							.querySelector(`[data-x="${this.point1.getAttribute('data-x')}"]`)
+							.getAttribute('data-empty') === 'yes' &&
+						document
+							.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p3)}"]`)
+							.getAttribute('data-empty') === 'yes'
+					) {
+						this.point4.style.backgroundColor = null;
+						this.point4.setAttribute('data-empty', 'yes');
+						this.point4 = document
+							.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + diff_x_p4}"]`)
+							.querySelector(`[data-x="${this.point1.getAttribute('data-x')}"]`);
+						this.point4.style.backgroundColor = '#874da8';
+						this.point4.setAttribute('data-empty', 'no');
+						this.point2.style.backgroundColor = null;
+						this.point2.setAttribute('data-empty', 'yes');
+						this.point2 = document
+							.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p2)}"]`);
+						this.point2.style.backgroundColor = '#874da8';
+						this.point2.setAttribute('data-empty', 'no');
 
-					this.point3.style.backgroundColor = null;
-					this.point3.setAttribute('data-empty', 'yes');
-					this.point3 = document
-						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p3)}"]`);
-					this.point3.style.backgroundColor = '#874da8';
-					this.point3.setAttribute('data-empty', 'no');
-					this.position++;
-					this.position === 5 ? (this.position = 1) : this.position;
+						this.point3.style.backgroundColor = null;
+						this.point3.setAttribute('data-empty', 'yes');
+						this.point3 = document
+							.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p3)}"]`);
+						this.point3.style.backgroundColor = '#874da8';
+						this.point3.setAttribute('data-empty', 'no');
+						this.position++;
+						this.position === 5 ? (this.position = 1) : this.position;
+					}
 				}
 			} else {
 				if (
@@ -742,30 +792,37 @@ function createL(x = 5, y = 3, shapeL = {}) {
 						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
 						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p3)}"]`)
 				) {
-					this.point4.style.backgroundColor = null;
-					this.point4.setAttribute('data-empty', 'yes');
-					this.point4 = document
-						.querySelector(`[data-y="${+this.point1.getAttribute('data-y') - Math.abs(diff_x_p4)}"]`)
-						.querySelector(`[data-x="${this.point1.getAttribute('data-x')}"]`);
-					this.point4.style.backgroundColor = '#874da8';
-					this.point4.setAttribute('data-empty', 'no');
-					this.point2.style.backgroundColor = null;
-					this.point2.setAttribute('data-empty', 'yes');
-					this.point2 = document
-						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p2)}"]`);
-					this.point2.style.backgroundColor = '#874da8';
-					this.point2.setAttribute('data-empty', 'no');
+					if (
+						document
+							.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p3)}"]`)
+							.getAttribute('data-empty') === 'yes'
+					) {
+						this.point4.style.backgroundColor = null;
+						this.point4.setAttribute('data-empty', 'yes');
+						this.point4 = document
+							.querySelector(`[data-y="${+this.point1.getAttribute('data-y') - Math.abs(diff_x_p4)}"]`)
+							.querySelector(`[data-x="${this.point1.getAttribute('data-x')}"]`);
+						this.point4.style.backgroundColor = '#874da8';
+						this.point4.setAttribute('data-empty', 'no');
+						this.point2.style.backgroundColor = null;
+						this.point2.setAttribute('data-empty', 'yes');
+						this.point2 = document
+							.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p2)}"]`);
+						this.point2.style.backgroundColor = '#874da8';
+						this.point2.setAttribute('data-empty', 'no');
 
-					this.point3.style.backgroundColor = null;
-					this.point3.setAttribute('data-empty', 'yes');
-					this.point3 = document
-						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p3)}"]`);
-					this.point3.style.backgroundColor = '#874da8';
-					this.point3.setAttribute('data-empty', 'no');
-					this.position++;
-					this.position === 5 ? (this.position = 1) : this.position;
+						this.point3.style.backgroundColor = null;
+						this.point3.setAttribute('data-empty', 'yes');
+						this.point3 = document
+							.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p3)}"]`);
+						this.point3.style.backgroundColor = '#874da8';
+						this.point3.setAttribute('data-empty', 'no');
+						this.position++;
+						this.position === 5 ? (this.position = 1) : this.position;
+					}
 				}
 			}
 		}
@@ -1164,30 +1221,41 @@ function createL_Rev(x = 5, y = 3, shapeL_Rev = {}) {
 					document.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p2)}"]`) &&
 					document.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p3)}"]`)
 				) {
-					this.point2.style.backgroundColor = null;
-					this.point2.setAttribute('data-empty', 'yes');
-					this.point2 = document
-						.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p2)}"]`)
-						.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`);
-					this.point2.style.backgroundColor = '#874da8';
-					this.point2.setAttribute('data-empty', 'no');
+					if (
+						document
+							.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p2)}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`)
+							.getAttribute('data-empty') === 'yes' &&
+						document
+							.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p3)}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`)
+							.getAttribute('data-empty') === 'yes'
+					) {
+						this.point2.style.backgroundColor = null;
+						this.point2.setAttribute('data-empty', 'yes');
+						this.point2 = document
+							.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p2)}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`);
+						this.point2.style.backgroundColor = '#874da8';
+						this.point2.setAttribute('data-empty', 'no');
 
-					this.point3.style.backgroundColor = null;
-					this.point3.setAttribute('data-empty', 'yes');
-					this.point3 = document
-						.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p3)}"]`)
-						.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`);
-					this.point3.style.backgroundColor = '#874da8';
-					this.point3.setAttribute('data-empty', 'no');
-					this.point4.style.backgroundColor = null;
-					this.point4.setAttribute('data-empty', 'yes');
-					this.point4 = document
-						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p4)}"]`);
-					this.point4.style.backgroundColor = '#874da8';
-					this.point4.setAttribute('data-empty', 'no');
-					this.position++;
-					this.position === 5 ? (this.position = 1) : this.position;
+						this.point3.style.backgroundColor = null;
+						this.point3.setAttribute('data-empty', 'yes');
+						this.point3 = document
+							.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p3)}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`);
+						this.point3.style.backgroundColor = '#874da8';
+						this.point3.setAttribute('data-empty', 'no');
+						this.point4.style.backgroundColor = null;
+						this.point4.setAttribute('data-empty', 'yes');
+						this.point4 = document
+							.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p4)}"]`);
+						this.point4.style.backgroundColor = '#874da8';
+						this.point4.setAttribute('data-empty', 'no');
+						this.position++;
+						this.position === 5 ? (this.position = 1) : this.position;
+					}
 				}
 			}
 		}
@@ -1201,30 +1269,41 @@ function createL_Rev(x = 5, y = 3, shapeL_Rev = {}) {
 						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
 						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p3)}"]`)
 				) {
-					this.point2.style.backgroundColor = null;
-					this.point2.setAttribute('data-empty', 'yes');
-					this.point2 = document
-						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p2)}"]`);
-					this.point2.style.backgroundColor = '#874da8';
-					this.point2.setAttribute('data-empty', 'no');
+					if (
+						document
+							.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p2)}"]`)
+							.getAttribute('data-empty') === 'yes' &&
+						document
+							.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p3)}"]`)
+							.getAttribute('data-empty') === 'yes'
+					) {
+						this.point2.style.backgroundColor = null;
+						this.point2.setAttribute('data-empty', 'yes');
+						this.point2 = document
+							.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p2)}"]`);
+						this.point2.style.backgroundColor = '#874da8';
+						this.point2.setAttribute('data-empty', 'no');
 
-					this.point3.style.backgroundColor = null;
-					this.point3.setAttribute('data-empty', 'yes');
-					this.point3 = document
-						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p3)}"]`);
-					this.point3.style.backgroundColor = '#874da8';
-					this.point3.setAttribute('data-empty', 'no');
-					this.point4.style.backgroundColor = null;
-					this.point4.setAttribute('data-empty', 'yes');
-					this.point4 = document
-						.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + diff_x_p4}"]`)
-						.querySelector(`[data-x="${this.point1.getAttribute('data-x')}"]`);
-					this.point4.style.backgroundColor = '#874da8';
-					this.point4.setAttribute('data-empty', 'no');
-					this.position++;
-					this.position === 5 ? (this.position = 1) : this.position;
+						this.point3.style.backgroundColor = null;
+						this.point3.setAttribute('data-empty', 'yes');
+						this.point3 = document
+							.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p3)}"]`);
+						this.point3.style.backgroundColor = '#874da8';
+						this.point3.setAttribute('data-empty', 'no');
+						this.point4.style.backgroundColor = null;
+						this.point4.setAttribute('data-empty', 'yes');
+						this.point4 = document
+							.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + diff_x_p4}"]`)
+							.querySelector(`[data-x="${this.point1.getAttribute('data-x')}"]`);
+						this.point4.style.backgroundColor = '#874da8';
+						this.point4.setAttribute('data-empty', 'no');
+						this.position++;
+						this.position === 5 ? (this.position = 1) : this.position;
+					}
 				}
 			} else {
 				if (
@@ -1232,30 +1311,41 @@ function createL_Rev(x = 5, y = 3, shapeL_Rev = {}) {
 						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
 						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p3)}"]`)
 				) {
-					this.point2.style.backgroundColor = null;
-					this.point2.setAttribute('data-empty', 'yes');
-					this.point2 = document
-						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p2)}"]`);
-					this.point2.style.backgroundColor = '#874da8';
-					this.point2.setAttribute('data-empty', 'no');
+					if (
+						document
+							.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p2)}"]`)
+							.getAttribute('data-empty') === 'yes' &&
+						document
+							.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p3)}"]`)
+							.getAttribute('data-empty') === 'yes'
+					) {
+						this.point2.style.backgroundColor = null;
+						this.point2.setAttribute('data-empty', 'yes');
+						this.point2 = document
+							.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p2)}"]`);
+						this.point2.style.backgroundColor = '#874da8';
+						this.point2.setAttribute('data-empty', 'no');
 
-					this.point3.style.backgroundColor = null;
-					this.point3.setAttribute('data-empty', 'yes');
-					this.point3 = document
-						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p3)}"]`);
-					this.point3.style.backgroundColor = '#874da8';
-					this.point3.setAttribute('data-empty', 'no');
-					this.point4.style.backgroundColor = null;
-					this.point4.setAttribute('data-empty', 'yes');
-					this.point4 = document
-						.querySelector(`[data-y="${+this.point1.getAttribute('data-y') - Math.abs(diff_x_p4)}"]`)
-						.querySelector(`[data-x="${this.point1.getAttribute('data-x')}"]`);
-					this.point4.style.backgroundColor = '#874da8';
-					this.point4.setAttribute('data-empty', 'no');
-					this.position++;
-					this.position === 5 ? (this.position = 1) : this.position;
+						this.point3.style.backgroundColor = null;
+						this.point3.setAttribute('data-empty', 'yes');
+						this.point3 = document
+							.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+							.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p3)}"]`);
+						this.point3.style.backgroundColor = '#874da8';
+						this.point3.setAttribute('data-empty', 'no');
+						this.point4.style.backgroundColor = null;
+						this.point4.setAttribute('data-empty', 'yes');
+						this.point4 = document
+							.querySelector(`[data-y="${+this.point1.getAttribute('data-y') - Math.abs(diff_x_p4)}"]`)
+							.querySelector(`[data-x="${this.point1.getAttribute('data-x')}"]`);
+						this.point4.style.backgroundColor = '#874da8';
+						this.point4.setAttribute('data-empty', 'no');
+						this.position++;
+						this.position === 5 ? (this.position = 1) : this.position;
+					}
 				}
 			}
 		}
@@ -1625,38 +1715,53 @@ function createZ(x = 5, y = 1, shapeZ = {}) {
 				// 	.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
 				// 	.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p4)}"]`)
 			) {
-				this.point3.style.backgroundColor = null;
-				this.point3.setAttribute('data-empty', 'yes');
-				this.point3 = document
-					.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p3)}"]`)
-					.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_x_p3)}"]`);
-				this.point3.style.backgroundColor = '#874da8';
-				this.point3.setAttribute('data-empty', 'no');
-				this.point2.style.backgroundColor = null;
-				this.point2.setAttribute('data-empty', 'yes');
-				this.point2 = document
-					.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p2)}"]`)
-					.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`);
-				this.point2.style.backgroundColor = '#874da8';
-				this.point2.setAttribute('data-empty', 'no');
+				if (
+					document
+						.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p2)}"]`)
+						.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`)
+						.getAttribute('data-empty') === 'yes' &&
+					document
+						.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p3)}"]`)
+						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_x_p3)}"]`)
+						.getAttribute('data-empty') === 'yes'
+				) {
+					this.point3.style.backgroundColor = null;
+					this.point3.setAttribute('data-empty', 'yes');
+					this.point3 = document
+						.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p3)}"]`)
+						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_x_p3)}"]`);
+					this.point3.style.backgroundColor = '#874da8';
+					this.point3.setAttribute('data-empty', 'no');
+					this.point2.style.backgroundColor = null;
+					this.point2.setAttribute('data-empty', 'yes');
+					this.point2 = document
+						.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p2)}"]`)
+						.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`);
+					this.point2.style.backgroundColor = '#874da8';
+					this.point2.setAttribute('data-empty', 'no');
 
-				this.point4.style.backgroundColor = null;
-				this.point4.setAttribute('data-empty', 'yes');
-				this.point4 = document
-					.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-					.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p4)}"]`);
-				this.point4.style.backgroundColor = '#874da8';
-				this.point4.setAttribute('data-empty', 'no');
-				this.position++;
-				this.position === 3 ? (this.position = 1) : this.position;
+					this.point4.style.backgroundColor = null;
+					this.point4.setAttribute('data-empty', 'yes');
+					this.point4 = document
+						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p4)}"]`);
+					this.point4.style.backgroundColor = '#874da8';
+					this.point4.setAttribute('data-empty', 'no');
+					this.position++;
+					this.position === 3 ? (this.position = 1) : this.position;
+				}
 			}
 		}
 		if (diff_y_p4 === 0 && diff_x_p4 < 0) {
 			if (
-				true
-				// document
-				// 	.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-				// 	.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - diff_y_p3}"]`)
+				document
+					.querySelector(`[data-y="${+this.point1.getAttribute('data-y') - Math.abs(diff_x_p4)}"]`)
+					.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`)
+					.getAttribute('data-empty') === 'yes' &&
+				document
+					.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_y_p3)}"]`)
+					.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p3)}"]`)
+					.getAttribute('data-empty') === 'yes'
 			) {
 				this.point4.style.backgroundColor = null;
 				this.point4.setAttribute('data-empty', 'yes');
@@ -1904,10 +2009,14 @@ function createZ_Rev(x = 5, y = 1, shapeZ_Rev = {}) {
 
 		if (diff_y_p4 === 0 && diff_x_p4 > 0) {
 			if (
-				true
-				// document
-				// 	.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-				// 	.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - diff_y_p3}"]`)
+				document
+					.querySelector(`[data-y="${+this.point1.getAttribute('data-y')}"]`)
+					.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p2)}"]`)
+					.getAttribute('data-empty') === 'yes' &&
+				document
+					.querySelector(`[data-y="${+this.point1.getAttribute('data-y') - Math.abs(diff_x_p3)}"]`)
+					.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_x_p3)}"]`)
+					.getAttribute('data-empty') === 'yes'
 			) {
 				this.point3.style.backgroundColor = null;
 				this.point3.setAttribute('data-empty', 'yes');
@@ -1941,31 +2050,42 @@ function createZ_Rev(x = 5, y = 1, shapeZ_Rev = {}) {
 					.querySelector(`[data-y="${+this.point1.getAttribute('data-y')}"]`)
 					.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p4)}"]`)
 			) {
-				this.point4.style.backgroundColor = null;
-				this.point4.setAttribute('data-empty', 'yes');
-				this.point4 = document
-					.querySelector(`[data-y="${+this.point1.getAttribute('data-y')}"]`)
-					.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p4)}"]`);
-				this.point4.style.backgroundColor = '#874da8';
-				this.point4.setAttribute('data-empty', 'no');
-				this.point2.style.backgroundColor = null;
-				this.point2.setAttribute('data-empty', 'yes');
-				this.point2 = document
-					.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p2)}"]`)
-					.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`);
-				this.point2.style.backgroundColor = '#874da8';
-				this.point2.setAttribute('data-empty', 'no');
+				if (
+					document
+						.querySelector(`[data-y="${+this.point1.getAttribute('data-y')}"]`)
+						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p4)}"]`)
+						.getAttribute('data-empty') === 'yes' &&
+					document
+						.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p3)}"]`)
+						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p3)}"]`)
+						.getAttribute('data-empty') === 'yes'
+				) {
+					this.point4.style.backgroundColor = null;
+					this.point4.setAttribute('data-empty', 'yes');
+					this.point4 = document
+						.querySelector(`[data-y="${+this.point1.getAttribute('data-y')}"]`)
+						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p4)}"]`);
+					this.point4.style.backgroundColor = '#874da8';
+					this.point4.setAttribute('data-empty', 'no');
+					this.point2.style.backgroundColor = null;
+					this.point2.setAttribute('data-empty', 'yes');
+					this.point2 = document
+						.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p2)}"]`)
+						.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`);
+					this.point2.style.backgroundColor = '#874da8';
+					this.point2.setAttribute('data-empty', 'no');
 
-				this.point3.style.backgroundColor = null;
-				this.point3.setAttribute('data-empty', 'yes');
-				this.point3 = document
-					.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p3)}"]`)
-					.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p3)}"]`);
-				this.point3.style.backgroundColor = '#874da8';
-				this.point3.setAttribute('data-empty', 'no');
+					this.point3.style.backgroundColor = null;
+					this.point3.setAttribute('data-empty', 'yes');
+					this.point3 = document
+						.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p3)}"]`)
+						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p3)}"]`);
+					this.point3.style.backgroundColor = '#874da8';
+					this.point3.setAttribute('data-empty', 'no');
 
-				this.position++;
-				this.position === 3 ? (this.position = 1) : this.position;
+					this.position++;
+					this.position === 3 ? (this.position = 1) : this.position;
+				}
 			}
 		}
 	};
@@ -2345,30 +2465,41 @@ function createLine(x = 5, y = 1, shapeLine = {}) {
 				document.querySelector(`[data-y="${+this.point1.getAttribute('data-y') - Math.abs(diff_x_p4)}"]`) &&
 				document.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p3)}"]`)
 			) {
-				this.point2.style.backgroundColor = null;
-				this.point2.setAttribute('data-empty', 'yes');
-				this.point2 = document
-					.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p2)}"]`)
-					.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`);
-				this.point2.style.backgroundColor = '#874da8';
-				this.point2.setAttribute('data-empty', 'no');
-				this.point3.style.backgroundColor = null;
-				this.point3.setAttribute('data-empty', 'yes');
-				this.point3 = document
-					.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p3)}"]`)
-					.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`);
-				this.point3.style.backgroundColor = '#874da8';
-				this.point3.setAttribute('data-empty', 'no');
+				if (
+					document
+						.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p2)}"]`)
+						.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`)
+						.getAttribute('data-empty') === 'yes' &&
+					document
+						.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p3)}"]`)
+						.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`)
+						.getAttribute('data-empty') === 'yes'
+				) {
+					this.point2.style.backgroundColor = null;
+					this.point2.setAttribute('data-empty', 'yes');
+					this.point2 = document
+						.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p2)}"]`)
+						.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`);
+					this.point2.style.backgroundColor = '#874da8';
+					this.point2.setAttribute('data-empty', 'no');
+					this.point3.style.backgroundColor = null;
+					this.point3.setAttribute('data-empty', 'yes');
+					this.point3 = document
+						.querySelector(`[data-y="${+this.point1.getAttribute('data-y') + Math.abs(diff_x_p3)}"]`)
+						.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`);
+					this.point3.style.backgroundColor = '#874da8';
+					this.point3.setAttribute('data-empty', 'no');
 
-				this.point4.style.backgroundColor = null;
-				this.point4.setAttribute('data-empty', 'yes');
-				this.point4 = document
-					.querySelector(`[data-y="${+this.point1.getAttribute('data-y') - Math.abs(diff_x_p4)}"]`)
-					.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`);
-				this.point4.style.backgroundColor = '#874da8';
-				this.point4.setAttribute('data-empty', 'no');
-				this.position++;
-				this.position === 3 ? (this.position = 1) : this.position;
+					this.point4.style.backgroundColor = null;
+					this.point4.setAttribute('data-empty', 'yes');
+					this.point4 = document
+						.querySelector(`[data-y="${+this.point1.getAttribute('data-y') - Math.abs(diff_x_p4)}"]`)
+						.querySelector(`[data-x="${+this.point1.getAttribute('data-x')}"]`);
+					this.point4.style.backgroundColor = '#874da8';
+					this.point4.setAttribute('data-empty', 'no');
+					this.position++;
+					this.position === 3 ? (this.position = 1) : this.position;
+				}
 			}
 		}
 		if (diff_x_p2 === 0 && diff_y_p2 > 0) {
@@ -2383,31 +2514,46 @@ function createLine(x = 5, y = 1, shapeLine = {}) {
 					.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
 					.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p2)}"]`)
 			) {
-				this.point4.style.backgroundColor = null;
-				this.point4.setAttribute('data-empty', 'yes');
-				this.point4 = document
-					.querySelector(`[data-y="${+this.point1.getAttribute('data-y')}"]`)
-					.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p4)}"]`);
-				this.point4.style.backgroundColor = '#874da8';
-				this.point4.setAttribute('data-empty', 'no');
-				this.point2.style.backgroundColor = null;
-				this.point2.setAttribute('data-empty', 'yes');
-				this.point2 = document
-					.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
-					.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p2)}"]`);
-				this.point2.style.backgroundColor = '#874da8';
-				this.point2.setAttribute('data-empty', 'no');
+				if (
+					document
+						.querySelector(`[data-y="${+this.point1.getAttribute('data-y')}"]`)
+						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p4)}"]`)
+						.getAttribute('data-empty') === 'yes' &&
+					document
+						.querySelector(`[data-y="${+this.point1.getAttribute('data-y')}"]`)
+						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p3)}"]`)
+						.getAttribute('data-empty') === 'yes' &&
+					document
+						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p2)}"]`)
+						.getAttribute('data-empty') === 'yes'
+				) {
+					this.point4.style.backgroundColor = null;
+					this.point4.setAttribute('data-empty', 'yes');
+					this.point4 = document
+						.querySelector(`[data-y="${+this.point1.getAttribute('data-y')}"]`)
+						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') - Math.abs(diff_y_p4)}"]`);
+					this.point4.style.backgroundColor = '#874da8';
+					this.point4.setAttribute('data-empty', 'no');
+					this.point2.style.backgroundColor = null;
+					this.point2.setAttribute('data-empty', 'yes');
+					this.point2 = document
+						.querySelector(`[data-y="${this.point1.getAttribute('data-y')}"]`)
+						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p2)}"]`);
+					this.point2.style.backgroundColor = '#874da8';
+					this.point2.setAttribute('data-empty', 'no');
 
-				this.point3.style.backgroundColor = null;
-				this.point3.setAttribute('data-empty', 'yes');
-				this.point3 = document
-					.querySelector(`[data-y="${+this.point1.getAttribute('data-y')}"]`)
-					.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p3)}"]`);
-				this.point3.style.backgroundColor = '#874da8';
-				this.point3.setAttribute('data-empty', 'no');
+					this.point3.style.backgroundColor = null;
+					this.point3.setAttribute('data-empty', 'yes');
+					this.point3 = document
+						.querySelector(`[data-y="${+this.point1.getAttribute('data-y')}"]`)
+						.querySelector(`[data-x="${+this.point1.getAttribute('data-x') + Math.abs(diff_y_p3)}"]`);
+					this.point3.style.backgroundColor = '#874da8';
+					this.point3.setAttribute('data-empty', 'no');
 
-				this.position++;
-				this.position === 3 ? (this.position = 1) : this.position;
+					this.position++;
+					this.position === 3 ? (this.position = 1) : this.position;
+				}
 			}
 		}
 	};
@@ -2610,36 +2756,55 @@ addEventListener('keydown', function() {
 			break;
 	}
 });
-function isLineFull(y = 20) {
-	if (y === 1) {
+
+function deleteFull(
+	y = 20,
+	rowDel = 0
+
+	// lower = Array.from(document.querySelector(`[data-y='${y + 1}']`).childNodes)
+) {
+	if (y < 1) {
+		for (let i = 0; i <= rowDel; i++) {
+			deleteEmpty();
+		}
 		return;
 	}
-
-	let upper = Array.from(document.querySelector(`[data-y='${y - 1}']`).childNodes);
-	let current = Array.from(document.querySelector(`[data-y='${y}']`).childNodes);
-	if (current.filter((el) => el.getAttribute('data-empty') === 'yes').length === 0) {
-		current.forEach((el, index) => {
-			el.style.backgroundColor = upper[index].style.backgroundColor;
-			el.setAttribute('data-empty', `${upper[index].getAttribute('data-empty')}`);
-		});
-		upper.forEach((el) => {
-			el.style.backgroundColor = null;
-			el.setAttribute('data-empty', 'yes');
-		});
-	}
-	if (current.filter((el) => el.getAttribute('data-empty') === 'no').length === 0) {
-		while (upper.filter((el) => el.getAttribute('data-empty') === 'no').length > 0) {
-			current.forEach((el, index) => {
-				el.style.backgroundColor = upper[index].style.backgroundColor;
-				el.setAttribute('data-empty', `${upper[index].getAttribute('data-empty')}`);
-			});
-			upper.forEach((el) => {
+	if (document.querySelector(`[data-y='${y}']`)) {
+		let current = Array.from(document.querySelector(`[data-y='${y}']`).childNodes);
+		if (!current.filter((el) => el.getAttribute('data-empty') === 'yes').length) {
+			current.forEach((el) => {
 				el.style.backgroundColor = null;
-				el.setAttribute('data-empty', 'yes');
+				el.setAttribute('data-empty', `yes`);
 			});
+			rowDel++;
+		}
+		y--;
+		deleteFull(y, rowDel);
+	}
+}
+function deleteEmpty(y = 1) {
+	if (y > 20) {
+		return;
+	}
+	if (document.querySelector(`[data-y='${y}']`)) {
+		let current = Array.from(document.querySelector(`[data-y='${y}']`).childNodes);
+		if (document.querySelector(`[data-y='${y + 1}']`)) {
+			let lower = Array.from(document.querySelector(`[data-y='${y + 1}']`).childNodes);
+			if (!lower.filter((el) => el.getAttribute('data-empty') === 'no').length) {
+				if (current.filter((el) => el.getAttribute('data-empty') === 'no').length) {
+					lower.forEach((el, index) => {
+						el.style.backgroundColor = current[index].style.backgroundColor;
+						el.setAttribute('data-empty', `${current[index].getAttribute('data-empty')}`);
+					});
+
+					current.forEach((el) => {
+						el.style.backgroundColor = null;
+						el.setAttribute('data-empty', 'yes');
+					});
+				}
+			}
+			y++;
+			deleteEmpty(y);
 		}
 	}
-
-	y--;
-	return isLineFull(y);
 }
