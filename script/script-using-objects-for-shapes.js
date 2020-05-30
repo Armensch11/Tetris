@@ -45,9 +45,9 @@
 			arrY.push(+currentShape.point1.getAttribute('data-y'));
 			console.log(currentShape.point1.getAttribute('data-y'));
 			if (arrY[arrY.length - 1] === arrY[arrY.length - 2]) {
-				shapeGen();
 				arrY = [];
 				checkFull();
+				shapeGen();
 			}
 		}, 800);
 		// setTimeout(() => clearInterval(stop), 3000);
