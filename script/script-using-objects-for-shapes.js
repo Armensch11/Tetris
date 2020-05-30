@@ -35,6 +35,8 @@
 	// start.innerHTML = 'start';
 	let stopID;
 	let arrY = [];
+	let finLine = Array.from(document.querySelector(`[data-y='3']`).childNodes);
+
 	start.addEventListener('click', () => {
 		// debugger;
 		// let finalRow = Array.from(document.querySelector("[data-y='3']").childNodes);
@@ -43,13 +45,16 @@
 		stopID = setInterval(() => {
 			currentShape.moveDown();
 			arrY.push(+currentShape.point1.getAttribute('data-y'));
+			if (finLine.filter((el) => el.getAttribute('data-empty') === 'no').length > 5) {
+				stopInterval();
+			}
 			console.log(currentShape.point1.getAttribute('data-y'));
 			if (arrY[arrY.length - 1] === arrY[arrY.length - 2]) {
 				arrY = [];
 				checkFull();
 				shapeGen();
 			}
-		}, 800);
+		}, 400);
 		// setTimeout(() => clearInterval(stop), 3000);
 	});
 	function shapeGen() {
@@ -98,7 +103,7 @@ function randShape() {
 	const shapeGen = document.createElement('div');
 	document.getElementById('shapes').appendChild(shapeGen);
 	shapeGen.setAttribute('id', 'shape-gen');
-	shapeGen.innerHTML = 'Generator';
+	shapeGen.innerHTML = 'SHAPE-GEN';
 	shapeGen.addEventListener('click', () => (currentShape = randShape()));
 	// const cube = document.createElement('div');
 	// document.getElementById('shapes').appendChild(cube);
