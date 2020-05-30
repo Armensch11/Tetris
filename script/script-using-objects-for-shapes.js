@@ -69,7 +69,10 @@
 	stopPos.appendChild(stop);
 	stop = document.getElementById('stop');
 	// stop.innerHTML = 'clear';
-	stop.addEventListener('click', clearCells);
+	stop.addEventListener('click', () => {
+		stopInterval();
+		clearCells();
+	});
 	// const left = document.createElement('div');
 	// document.getElementById('move-buttons').appendChild(left);
 	// left.classList.add('move');
@@ -100,11 +103,11 @@ function randShape() {
 }
 
 (function() {
-	const shapeGen = document.createElement('div');
-	document.getElementById('shapes').appendChild(shapeGen);
-	shapeGen.setAttribute('id', 'shape-gen');
-	shapeGen.innerHTML = 'SHAPE-GEN';
-	shapeGen.addEventListener('click', () => (currentShape = randShape()));
+	// const shapeGen = document.createElement('div');
+	// document.getElementById('shapes').appendChild(shapeGen);
+	// shapeGen.setAttribute('id', 'shape-gen');
+	// shapeGen.innerHTML = 'SHAPE-GEN';
+	// shapeGen.addEventListener('click', () => (currentShape = randShape()));
 	// const cube = document.createElement('div');
 	// document.getElementById('shapes').appendChild(cube);
 	// cube.setAttribute('id', 'cube');
