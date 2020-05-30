@@ -36,20 +36,20 @@
 	let stopID;
 	let arrY = [];
 	start.addEventListener('click', () => {
+		// debugger;
+		// let finalRow = Array.from(document.querySelector("[data-y='3']").childNodes);
+		// while (finalRow.filter((el) => el.getAttribute('data-empty') === 'yes').length > 5) {
 		shapeGen();
 		stopID = setInterval(() => {
 			currentShape.moveDown();
 			arrY.push(+currentShape.point1.getAttribute('data-y'));
 			console.log(currentShape.point1.getAttribute('data-y'));
 			if (arrY[arrY.length - 1] === arrY[arrY.length - 2]) {
-				stopInterval();
+				shapeGen();
 				arrY = [];
-				(() => {
-					checkFull();
-					shapeGen();
-				})();
+				checkFull();
 			}
-		}, 500);
+		}, 800);
 		// setTimeout(() => clearInterval(stop), 3000);
 	});
 	function shapeGen() {
