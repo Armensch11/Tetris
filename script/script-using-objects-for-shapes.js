@@ -35,33 +35,36 @@
 	// start.innerHTML = 'start';
 	let stopID;
 	let arrY = [];
-	let finLine = Array.from(document.querySelector(`[data-y='3']`).childNodes);
+	let finLine = Array.from(document.querySelector(`[data-y='2']`).childNodes);
 
 	start.addEventListener('click', () => {
 		// debugger;
 		// let finalRow = Array.from(document.querySelector("[data-y='3']").childNodes);
 		// while (finalRow.filter((el) => el.getAttribute('data-empty') === 'yes').length > 5) {
 		shapeGen();
-		stopID = setInterval(() => {
+		stopID = setTimeout(function newShape() {
 			currentShape.moveDown();
 			arrY.push(+currentShape.point1.getAttribute('data-y'));
-			if (finLine.filter((el) => el.getAttribute('data-empty') === 'no').length > 5) {
-				stopInterval();
-			}
-			console.log(currentShape.point1.getAttribute('data-y'));
+
+			// console.log(currentShape.point1.getAttribute('data-y'));
 			if (arrY[arrY.length - 1] === arrY[arrY.length - 2]) {
 				arrY = [];
 				checkFull();
 				shapeGen();
 			}
-		}, 400);
+			if (finLine.filter((el) => el.getAttribute('data-empty') === 'no').length <= 4) {
+				setTimeout(newShape, 350);
+			} else {
+				stopInterval();
+			}
+		}, 350);
 		// setTimeout(() => clearInterval(stop), 3000);
 	});
 	function shapeGen() {
 		currentShape = randShape();
 	}
 	function stopInterval() {
-		clearInterval(stopID);
+		clearTimeout(stopID);
 	}
 	const stopPos = document.getElementById('stop-place');
 	let stop = document.createElement('div');
