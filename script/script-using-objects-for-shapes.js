@@ -53,7 +53,7 @@
 				shapeGen();
 			}
 			if (finLine.filter((el) => el.getAttribute('data-empty') === 'no').length <= 4) {
-				setTimeout(newShape, 350);
+				stopID = setTimeout(newShape, 350);
 			} else {
 				stopInterval();
 			}
@@ -2832,4 +2832,15 @@ function checkFull(y = 4) {
 	}
 	y++;
 	return checkFull(y);
+}
+
+function printNum(from, to) {
+	let num = from;
+	let timeID = setInterval(() => {
+		console.log(num);
+		if (num === to) {
+			clearInterval(timeID);
+		}
+		num++;
+	}, 1000);
 }
