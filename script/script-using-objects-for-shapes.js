@@ -1,4 +1,13 @@
 let score = 0;
+let currentShape;
+function randShape() {
+	let shapeArr = [ createCube, createLine, createL, createL_Rev, createZ, createZ_Rev, createTriangle ];
+	let randIndex = Math.floor(Math.random() * shapeArr.length);
+	randIndex === 7 ? (randIndex = 6) : randIndex;
+
+	// console.log(randIndex);
+	return shapeArr[randIndex]();
+}
 (function() {
 	let colConst;
 	let rowConst;
@@ -102,15 +111,6 @@ let score = 0;
 	// // right.innerHTML = 'right';
 	// right.addEventListener('click', () => moveRight());
 })();
-let currentShape;
-function randShape() {
-	let shapeArr = [ createCube, createLine, createL, createL_Rev, createZ, createZ_Rev, createTriangle ];
-	let randIndex = Math.floor(Math.random() * shapeArr.length);
-	randIndex === 7 ? (randIndex = 6) : randIndex;
-
-	// console.log(randIndex);
-	return shapeArr[randIndex]();
-}
 
 (function() {
 	// const shapeGen = document.createElement('div');
