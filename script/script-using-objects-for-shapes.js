@@ -1,3 +1,4 @@
+let score = 0;
 (function() {
 	let colConst;
 	let rowConst;
@@ -36,7 +37,10 @@
 	let stopID;
 	let arrY = [];
 	let finLine = Array.from(document.querySelector(`[data-y='2']`).childNodes);
+	let scoreTab = document.getElementById('score-place');
 
+	scoreTab.innerHTML = `${score}`;
+	// console.log(scoreTab);
 	start.addEventListener('click', () => {
 		// debugger;
 		// let finalRow = Array.from(document.querySelector("[data-y='3']").childNodes);
@@ -45,10 +49,11 @@
 		stopID = setTimeout(function newShape() {
 			currentShape.moveDown();
 			arrY.push(+currentShape.point1.getAttribute('data-y'));
-
+			scoreTab.innerHTML = `${score}`;
 			// console.log(currentShape.point1.getAttribute('data-y'));
 			if (arrY[arrY.length - 1] === arrY[arrY.length - 2]) {
 				arrY = [];
+
 				checkFull();
 				shapeGen();
 			}
@@ -73,6 +78,8 @@
 	stop = document.getElementById('stop');
 	// stop.innerHTML = 'clear';
 	stop.addEventListener('click', () => {
+		score = 0;
+		scoreTab.innerHTML = `${score}`;
 		stopInterval();
 		clearCells();
 	});
@@ -2810,6 +2817,8 @@ function checkFull(y = 4) {
 	let current = Array.from(document.querySelector(`[data-y='${y}']`).childNodes);
 	let upper = Array.from(document.querySelector(`[data-y='${y - 1}']`).childNodes);
 	if (current.filter((el) => el.getAttribute('data-empty') === 'yes').length === 0) {
+		score++;
+		console.log(score);
 		current.forEach((el, index) => {
 			el.style.backgroundColor = upper[index].style.backgroundColor;
 			el.setAttribute('data-empty', `${upper[index].getAttribute('data-empty')}`);
@@ -2832,15 +2841,4 @@ function checkFull(y = 4) {
 	}
 	y++;
 	return checkFull(y);
-}
-
-function printNum(from, to) {
-	let num = from;
-	let timeID = setInterval(() => {
-		console.log(num);
-		if (num === to) {
-			clearInterval(timeID);
-		}
-		num++;
-	}, 1000);
 }
