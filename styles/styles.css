@@ -32,7 +32,7 @@
 	align-items: center;
 }
 #start {
-	background-image: url(../icons/powerCirclePuple.png);
+	background-image: url(../icons/powerCirclePurple.png);
 	background-repeat: no-repeat;
 	width: 50px;
 	height: 50px;
@@ -43,9 +43,9 @@
 }
 #start:hover {
 	transition: 0.3s;
-	border-radius: 15%;
+	border-radius: 50%;
 	cursor: pointer;
-	background-color: rgb(228, 224, 224);
+	background-color: rgba(173, 173, 221, 0.596);
 }
 #stop {
 	background-image: url(../icons/powerCircle.png);
@@ -61,9 +61,9 @@
 }
 #stop:hover {
 	transition: 0.3s;
-	border-radius: 15%;
+	border-radius: 50%;
 	cursor: pointer;
-	background-color: rgb(228, 224, 224);
+	background-color: rgba(173, 173, 221, 0.596);
 }
 #score-place {
 	width: 50px;
