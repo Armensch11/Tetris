@@ -32,44 +32,50 @@
 	align-items: center;
 }
 #start {
-	background-image: url(../icons/play-icon.png);
-
-	width: 63px;
-	height: 63px;
-
+	background-image: url(../icons/powerCirclePuple.png);
+	background-repeat: no-repeat;
+	width: 50px;
+	height: 50px;
+	background-size: contain;
+	border: 1px solid rgb(196, 194, 194);
+	border-radius: 50%;
 	box-sizing: border-box;
 }
 #start:hover {
 	transition: 0.3s;
-	border-radius: 50%;
+	border-radius: 15%;
 	cursor: pointer;
 	background-color: rgb(228, 224, 224);
 }
 #stop {
-	background-image: url(../icons/del-icon.png);
+	background-image: url(../icons/powerCircle.png);
 	background-repeat: no-repeat;
 	background-position: center;
+	background-size: contain;
 
-	width: 63px;
-	height: 63px;
-
+	width: 50px;
+	height: 50px;
+	border: 1px solid rgb(196, 194, 194);
+	border-radius: 50%;
 	box-sizing: border-box;
 }
 #stop:hover {
 	transition: 0.3s;
-	border-radius: 50%;
+	border-radius: 15%;
 	cursor: pointer;
 	background-color: rgb(228, 224, 224);
 }
 #score-place {
-	width: 126px;
-	height: 63px;
-	border: 1px solid grey;
-	border-radius: 5%;
+	width: 50px;
+	height: 50px;
+	border: 4px solid rgb(196, 194, 194);
+	border-radius: 50%;
+	color: rgb(119, 118, 118);
 	font-family: 'Courier New', Courier, monospace;
 	font-size: 30px;
+	font-weight: bold;
 	text-align: center;
-	line-height: 63px;
+	line-height: 50px;
 }
 
 /* #move-buttons {
