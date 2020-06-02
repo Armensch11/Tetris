@@ -26,8 +26,50 @@ for (let i = 0; i < 4; i++) {
 	}
 	matrixPlace.appendChild(matrixRow);
 }
-switch (randomArr[1]) {
+function iconSwitch(next) {
+	let temp;
+	let tempArr;
+	let cells = document.getElementsByClassName('matrix-cell');
+	for (let cell of cells) {
+		cell.style.backgroundColor = null;
+	}
+	switch (next) {
+		case 1:
+			temp = Array.from(document.getElementsByClassName('matrix-cell'));
+			tempArr = shape_L.flat(1);
+			temp.forEach((el, index) => (tempArr[index] ? (el.style.backgroundColor = '#874da8') : el));
+			break;
+		case 2:
+			temp = Array.from(document.getElementsByClassName('matrix-cell'));
+			tempArr = shape_L_rev.flat(1);
+			temp.forEach((el, index) => (tempArr[index] ? (el.style.backgroundColor = '#874da8') : el));
+			break;
+		case 3:
+			temp = Array.from(document.getElementsByClassName('matrix-cell'));
+			tempArr = shape_Z.flat(1);
+			temp.forEach((el, index) => (tempArr[index] ? (el.style.backgroundColor = '#874da8') : el));
+			break;
+		case 4:
+			temp = Array.from(document.getElementsByClassName('matrix-cell'));
+			tempArr = shape_Z_rev.flat(1);
+			temp.forEach((el, index) => (tempArr[index] ? (el.style.backgroundColor = '#874da8') : el));
+			break;
+		case 5:
+			temp = Array.from(document.getElementsByClassName('matrix-cell'));
+			tempArr = shape_Triangle.flat(1);
+			temp.forEach((el, index) => (tempArr[index] ? (el.style.backgroundColor = '#874da8') : el));
+			break;
+		case 6:
+			temp = Array.from(document.getElementsByClassName('matrix-cell'));
+			tempArr = shape_Cube.flat(1);
+			temp.forEach((el, index) => (tempArr[index] ? (el.style.backgroundColor = '#874da8') : el));
+			break;
+		default:
+			temp = Array.from(document.getElementsByClassName('matrix-cell'));
+			tempArr = shape_Line.flat(1);
+			temp.forEach((el, index) => (tempArr[index] ? (el.style.backgroundColor = '#874da8') : el));
+	}
 }
-let cells = Array.from(document.getElementsByClassName('matrix-cell'));
-let tempArr = shape_Line.flat(1);
-cells.forEach((el, index) => (tempArr[index] ? (el.style.backgroundColor = '#874da8') : el));
+// let cells = Array.from(document.getElementsByClassName('matrix-cell'));
+// let tempArr = shape_Line.flat(1);
+// cells.forEach((el, index) => (tempArr[index] ? (el.style.backgroundColor = '#874da8') : el));

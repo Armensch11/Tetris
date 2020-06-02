@@ -169,11 +169,12 @@ function entryPoint(randomCell = Math.floor(Math.random() * 5)) {
 	currentCell = randomCol;
 	console.log(currentCell);
 }
+
 function randShape() {
-	let shapeArr = [ createCube, createLine, createL, createL_Rev, createZ, createZ_Rev, createTriangle ];
+	let shapeArr = [ createLine, createL, createL_Rev, createZ, createZ_Rev, createTriangle, createCube ];
 	let randIndex = Math.floor(Math.random() * shapeArr.length);
 	randIndex === 7 ? (randIndex = 6) : randIndex;
-
+	iconSwitch(randIndex);
 	// console.log(randIndex);
 	return shapeArr[randIndex];
 }
