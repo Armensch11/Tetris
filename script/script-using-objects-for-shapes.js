@@ -64,11 +64,13 @@ let currentShape;
 					stopInterval();
 				}
 			}, 350);
+			start.style.backgroundImage = 'url(../icons/powerCircle.png)';
 		} else {
 			score = 0;
 			scoreTab.innerHTML = `${score}`;
 			stopInterval();
 			clearCells();
+			start.style.backgroundImage = 'url(../icons/powerCirclePurple.png)';
 		}
 	});
 	// const randomArr = new Array(2);
