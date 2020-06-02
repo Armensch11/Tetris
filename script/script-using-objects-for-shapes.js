@@ -1,6 +1,10 @@
 let score = 0;
 let currentShape;
+const randomArr = new Array(2);
 
+function shapeGen() {
+	currentShape = randShape()();
+}
 (function() {
 	let colConst;
 	let rowConst;
@@ -47,6 +51,7 @@ let currentShape;
 		clickCounter++;
 		if (clickCounter % 2) {
 			shapeGen();
+
 			stopID = setTimeout(function newShape() {
 				currentShape.moveDown();
 				arrY.push(+currentShape.point1.getAttribute('data-y'));
@@ -73,13 +78,7 @@ let currentShape;
 			start.style.backgroundImage = 'url(./icons/powerCirclePurple.png)';
 		}
 	});
-	// const randomArr = new Array(2);
-	// randomArr[0] = randShape();
-	// // randomArr[1] = randShape();
-	// console.log(randomArr);
-	function shapeGen() {
-		currentShape = randShape();
-	}
+
 	function stopInterval() {
 		clearTimeout(stopID);
 	}
@@ -176,7 +175,7 @@ function randShape() {
 	randIndex === 7 ? (randIndex = 6) : randIndex;
 
 	// console.log(randIndex);
-	return shapeArr[randIndex]();
+	return shapeArr[randIndex];
 }
 
 function clearCells() {
