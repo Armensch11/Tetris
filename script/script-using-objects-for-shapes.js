@@ -76,6 +76,10 @@ function shapeGen() {
 			stopInterval();
 			clearCells();
 			start.style.backgroundImage = 'url(./icons/powerCirclePurple.png)';
+			let cells = document.getElementsByClassName('matrix-cell');
+			for (let cell of cells) {
+				cell.style.backgroundColor = null;
+			}
 		}
 	});
 
