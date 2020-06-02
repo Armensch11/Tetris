@@ -48,7 +48,7 @@
 	background-color: rgba(173, 173, 221, 0.596);
 }
 #stop {
-	background-image: url(../icons/powerCircle.png);
+	/* background-image: url(../icons/powerCircle.png); */
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
@@ -93,8 +93,6 @@
 #turn {
 	width: 70px;
 	height: 70px;
-	border: 2px solid rgb(196, 194, 194);
-	border-radius: 20%;
 
 	background-image: url(../icons/loading.png);
 	background-repeat: no-repeat;
@@ -109,10 +107,9 @@
 }
 #left,
 #right {
-	width: 110px;
+	width: 80px;
 	height: 50px;
-	border: 2px solid rgb(196, 194, 194);
-	border-radius: 10%;
+
 	color: rgb(119, 118, 118);
 	font-family: 'Courier New', Courier, monospace;
 	font-size: 30px;
@@ -123,8 +120,9 @@
 #left:hover,
 #turn:hover,
 #right:hover {
-	transition: 0.3s;
+	transition: 0.5s;
 	background-color: rgba(189, 188, 188, 0.603);
+	border-radius: 7%;
 }
 #matrix {
 	display: flex;
