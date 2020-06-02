@@ -126,6 +126,23 @@
 	transition: 0.3s;
 	background-color: rgba(189, 188, 188, 0.603);
 }
+#matrix {
+	display: flex;
+	margin-right: 50px;
+	flex-direction: column;
+	height: fit-content;
+	width: fit-content;
+}
+.matrix-row {
+	display: flex;
+	flex-direction: row;
+}
+.matrix-cell {
+	width: 30px;
+	height: 30px;
+	border: 1px solid rgba(182, 181, 181, 0.37);
+	background-color: rgb(241, 239, 239);
+}
 /* #move-buttons {
 	display: flex;
 
