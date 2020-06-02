@@ -1,13 +1,6 @@
 let score = 0;
 let currentShape;
-function randShape() {
-	let shapeArr = [ createCube, createLine, createL, createL_Rev, createZ, createZ_Rev, createTriangle ];
-	let randIndex = Math.floor(Math.random() * shapeArr.length);
-	randIndex === 7 ? (randIndex = 6) : randIndex;
 
-	// console.log(randIndex);
-	return shapeArr[randIndex]();
-}
 (function() {
 	let colConst;
 	let rowConst;
@@ -30,7 +23,7 @@ function randShape() {
 			colConst.setAttribute('data-x', i);
 			colConst.setAttribute('data-y', `${row.getAttribute('data-y')}`);
 			colConst.setAttribute('data-empty', 'yes');
-			colConst.setAttribute('data-final-place', 'no');
+
 			row.appendChild(colConst);
 		}
 		childArr = [ ...Array.from(row.getElementsByTagName('div')) ];
@@ -47,51 +40,59 @@ function randShape() {
 	let arrY = [];
 	let finLine = Array.from(document.querySelector(`[data-y='2']`).childNodes);
 	let scoreTab = document.getElementById('score-place');
-
+	let clickCounter = 0;
 	scoreTab.innerHTML = `${score}`;
 	// console.log(scoreTab);
 	start.addEventListener('click', () => {
-		// debugger;
-		// let finalRow = Array.from(document.querySelector("[data-y='3']").childNodes);
-		// while (finalRow.filter((el) => el.getAttribute('data-empty') === 'yes').length > 5) {
-		shapeGen();
-		stopID = setTimeout(function newShape() {
-			currentShape.moveDown();
-			arrY.push(+currentShape.point1.getAttribute('data-y'));
-			scoreTab.innerHTML = `${score}`;
-			// console.log(currentShape.point1.getAttribute('data-y'));
-			if (arrY[arrY.length - 1] === arrY[arrY.length - 2]) {
-				arrY = [];
+		clickCounter++;
+		if (clickCounter % 2) {
+			shapeGen();
+			stopID = setTimeout(function newShape() {
+				currentShape.moveDown();
+				arrY.push(+currentShape.point1.getAttribute('data-y'));
+				scoreTab.innerHTML = `${score}`;
+				// console.log(currentShape.point1.getAttribute('data-y'));
+				if (arrY[arrY.length - 1] === arrY[arrY.length - 2]) {
+					arrY = [];
 
-				checkFull();
-				shapeGen();
-			}
-			if (finLine.filter((el) => el.getAttribute('data-empty') === 'no').length <= 4) {
-				stopID = setTimeout(newShape, 350);
-			} else {
-				stopInterval();
-			}
-		}, 350);
-		// setTimeout(() => clearInterval(stop), 3000);
+					checkFull();
+					shapeGen();
+				}
+				if (finLine.filter((el) => el.getAttribute('data-empty') === 'no').length <= 4) {
+					stopID = setTimeout(newShape, 350);
+				} else {
+					stopInterval();
+				}
+			}, 350);
+		} else {
+			score = 0;
+			scoreTab.innerHTML = `${score}`;
+			stopInterval();
+			clearCells();
+		}
 	});
+	// const randomArr = new Array(2);
+	// randomArr[0] = randShape();
+	// // randomArr[1] = randShape();
+	// console.log(randomArr);
 	function shapeGen() {
 		currentShape = randShape();
 	}
 	function stopInterval() {
 		clearTimeout(stopID);
 	}
-	const stopPos = document.getElementById('stop-place');
-	let stop = document.createElement('div');
-	stop.setAttribute('id', 'stop');
-	stopPos.appendChild(stop);
-	stop = document.getElementById('stop');
-	// stop.innerHTML = 'clear';
-	stop.addEventListener('click', () => {
-		score = 0;
-		scoreTab.innerHTML = `${score}`;
-		stopInterval();
-		clearCells();
-	});
+	// const stopPos = document.getElementById('stop-place');
+	// let stop = document.createElement('div');
+	// stop.setAttribute('id', 'stop');
+	// stopPos.appendChild(stop);
+	// stop = document.getElementById('stop');
+	// // stop.innerHTML = 'clear';
+	// stop.addEventListener('click', () => {
+	// 	score = 0;
+	// 	scoreTab.innerHTML = `${score}`;
+	// 	stopInterval();
+	// 	clearCells();
+	// });
 	// const left = document.createElement('div');
 	// document.getElementById('move-buttons').appendChild(left);
 	// left.classList.add('move');
@@ -166,6 +167,14 @@ function entryPoint(randomCell = Math.floor(Math.random() * 5)) {
 	randomCol.setAttribute('data-empty', 'no');
 	currentCell = randomCol;
 	console.log(currentCell);
+}
+function randShape() {
+	let shapeArr = [ createCube, createLine, createL, createL_Rev, createZ, createZ_Rev, createTriangle ];
+	let randIndex = Math.floor(Math.random() * shapeArr.length);
+	randIndex === 7 ? (randIndex = 6) : randIndex;
+
+	// console.log(randIndex);
+	return shapeArr[randIndex]();
 }
 
 function clearCells() {
