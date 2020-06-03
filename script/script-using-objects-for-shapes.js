@@ -1,10 +1,10 @@
 let score = 0;
 let currentShape;
-const randomArr = new Array(2);
+// const randomArr = new Array(2);
 
-function shapeGen() {
-	currentShape = randShape()();
-}
+// function shapeGen() {
+// 	currentShape = randShape()();
+// }
 (function() {
 	let colConst;
 	let rowConst;
@@ -47,10 +47,67 @@ function shapeGen() {
 	let clickCounter = 0;
 	scoreTab.innerHTML = `${score}`;
 	// console.log(scoreTab);
+	// start.addEventListener('click', () => {
+	// 	clickCounter++;
+	// 	if (clickCounter % 2) {
+	// 		shapeGen();
+
+	// 		stopID = setTimeout(function newShape() {
+	// 			currentShape.moveDown();
+	// 			arrY.push(+currentShape.point1.getAttribute('data-y'));
+	// 			scoreTab.innerHTML = `${score}`;
+	// 			// console.log(currentShape.point1.getAttribute('data-y'));
+	// 			if (arrY[arrY.length - 1] === arrY[arrY.length - 2]) {
+	// 				arrY = [];
+
+	// 				checkFull();
+	// 				shapeGen();
+	// 			}
+	// 			if (finLine.filter((el) => el.getAttribute('data-empty') === 'no').length <= 4) {
+	// 				stopID = setTimeout(newShape, 350);
+	// 			} else {
+	// 				stopInterval();
+	// 			}
+	// 		}, 350);
+	// 		start.style.backgroundImage = 'url(./icons/powerCircle.png)';
+	// 	} else {
+	// 		score = 0;
+	// 		scoreTab.innerHTML = `${score}`;
+	// 		stopInterval();
+	// 		clearCells();
+	// 		start.style.backgroundImage = 'url(./icons/powerCirclePurple.png)';
+	// 		let cells = document.getElementsByClassName('matrix-cell');
+	// 		for (let cell of cells) {
+	// 			cell.style.backgroundColor = null;
+	// 		}
+	// 	}
+	// });
+
+	// function stopInterval() {
+	// 	clearTimeout(stopID);
+	// }
+
+	//changed randomiser and start listener handler
+	let shapeArr = [ createLine, createL, createL_Rev, createZ, createZ_Rev, createTriangle, createCube ];
+	function randShape() {
+		let randIndex = Math.floor(Math.random() * shapeArr.length);
+		randIndex === 7 ? (randIndex = 6) : randIndex;
+		// iconSwitch(randIndex);
+		// console.log(randIndex);
+		// return shapeArr[randIndex];
+		return randIndex;
+	}
+	const nextElArr = new Array(2);
+	nextElArr[0] = randShape();
+	nextElArr[1] = randShape();
+	// iconSwitch(nextElArr[1]);
+	// function shapeGen() {
+	// 	currentShape = randShape()();
+	// }
 	start.addEventListener('click', () => {
 		clickCounter++;
 		if (clickCounter % 2) {
-			shapeGen();
+			currentShape = shapeArr[nextElArr[0]]();
 
 			stopID = setTimeout(function newShape() {
 				currentShape.moveDown();
@@ -61,7 +118,12 @@ function shapeGen() {
 					arrY = [];
 
 					checkFull();
-					shapeGen();
+					nextElArr[0] = nextElArr[1];
+					currentShape = shapeArr[nextElArr[0]]();
+					nextElArr[1] = randShape();
+					iconSwitch(nextElArr[1]);
+					// console.log(nextElArr[0]);
+					// shapeGen();
 				}
 				if (finLine.filter((el) => el.getAttribute('data-empty') === 'no').length <= 4) {
 					stopID = setTimeout(newShape, 350);
@@ -174,14 +236,14 @@ function entryPoint(randomCell = Math.floor(Math.random() * 5)) {
 	console.log(currentCell);
 }
 
-function randShape() {
-	let shapeArr = [ createLine, createL, createL_Rev, createZ, createZ_Rev, createTriangle, createCube ];
-	let randIndex = Math.floor(Math.random() * shapeArr.length);
-	randIndex === 7 ? (randIndex = 6) : randIndex;
-	iconSwitch(randIndex);
-	// console.log(randIndex);
-	return shapeArr[randIndex];
-}
+// function randShape() {
+// 	let shapeArr = [ createLine, createL, createL_Rev, createZ, createZ_Rev, createTriangle, createCube ];
+// 	let randIndex = Math.floor(Math.random() * shapeArr.length);
+// 	randIndex === 7 ? (randIndex = 6) : randIndex;
+// 	iconSwitch(randIndex);
+// 	// console.log(randIndex);
+// 	return shapeArr[randIndex];
+// }
 
 function clearCells() {
 	let cells = document.querySelectorAll('[data-empty="no"]');

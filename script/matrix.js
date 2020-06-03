@@ -73,3 +73,60 @@ function iconSwitch(next) {
 // let cells = Array.from(document.getElementsByClassName('matrix-cell'));
 // let tempArr = shape_Line.flat(1);
 // cells.forEach((el, index) => (tempArr[index] ? (el.style.backgroundColor = '#874da8') : el));
+// let shapeArr = [ createLine, createL, createL_Rev, createZ, createZ_Rev, createTriangle, createCube ];
+// function randShape() {
+// 	let randIndex = Math.floor(Math.random() * shapeArr.length);
+// 	randIndex === 7 ? (randIndex = 6) : randIndex;
+// 	// iconSwitch(randIndex);
+// 	// console.log(randIndex);
+// 	// return shapeArr[randIndex];
+// 	return randIndex;
+// }
+// const nextElArr = new Array(2);
+// nextElArr[0] = shapeArr[randShape()];
+// nextElArr[1] = shapeArr[randShape()];
+// // function shapeGen() {
+// // 	currentShape = randShape()();
+// // }
+// start.addEventListener('click', () => {
+// 	clickCounter++;
+// 	if (clickCounter % 2) {
+// 		currentShape = nextElArr[0]();
+
+// 		stopID = setTimeout(function newShape() {
+// 			currentShape.moveDown();
+// 			arrY.push(+currentShape.point1.getAttribute('data-y'));
+// 			scoreTab.innerHTML = `${score}`;
+// 			// console.log(currentShape.point1.getAttribute('data-y'));
+// 			if (arrY[arrY.length - 1] === arrY[arrY.length - 2]) {
+// 				arrY = [];
+
+//                 checkFull();
+//                 nextElArr[0]=nextElArr[1];
+//                 currentShape=nextElArr[0]();
+//                 nextElArr[1]=shapeArr[randShape()];
+// 				// shapeGen();
+// 			}
+// 			if (finLine.filter((el) => el.getAttribute('data-empty') === 'no').length <= 4) {
+// 				stopID = setTimeout(newShape, 350);
+// 			} else {
+// 				stopInterval();
+// 			}
+// 		}, 350);
+// 		start.style.backgroundImage = 'url(./icons/powerCircle.png)';
+// 	} else {
+// 		score = 0;
+// 		scoreTab.innerHTML = `${score}`;
+// 		stopInterval();
+// 		clearCells();
+// 		start.style.backgroundImage = 'url(./icons/powerCirclePurple.png)';
+// 		let cells = document.getElementsByClassName('matrix-cell');
+// 		for (let cell of cells) {
+// 			cell.style.backgroundColor = null;
+// 		}
+// 	}
+// });
+
+// function stopInterval() {
+// 	clearTimeout(stopID);
+// }
