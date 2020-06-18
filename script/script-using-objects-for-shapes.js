@@ -115,12 +115,14 @@ let currentShape;
 		}
 	}
 
-	let speed = start.addEventListener('click', () => {
+	let speed;
+	start.addEventListener('click', () => {
 		clickCounter++;
 		if (clickCounter % 2) {
 			currentShape = shapeArr[nextElArr[0]]();
 
 			stopID = setTimeout(function newShape() {
+				speed = speedRate(score);
 				currentShape.moveDown();
 				arrY.push(+currentShape.point1.getAttribute('data-y'));
 				scoreTab.innerHTML = `${score}`;
@@ -129,7 +131,7 @@ let currentShape;
 					arrY = [];
 
 					checkFull();
-					speed = speedRate(score);
+
 					nextElArr[0] = nextElArr[1];
 					currentShape = shapeArr[nextElArr[0]]();
 					nextElArr[1] = randShape();
