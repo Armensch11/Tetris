@@ -104,7 +104,18 @@ let currentShape;
 	// function shapeGen() {
 	// 	currentShape = randShape()();
 	// }
-	start.addEventListener('click', () => {
+	function speedRate(score) {
+		let rate = [ 350, 270, 200 ];
+		if (score < 40) {
+			return rate[0];
+		} else if (score >= 40 && score < 80) {
+			return rate[1];
+		} else {
+			return rate[2];
+		}
+	}
+
+	let speed = start.addEventListener('click', () => {
 		clickCounter++;
 		if (clickCounter % 2) {
 			currentShape = shapeArr[nextElArr[0]]();
@@ -118,6 +129,7 @@ let currentShape;
 					arrY = [];
 
 					checkFull();
+					speed = speedRate(score);
 					nextElArr[0] = nextElArr[1];
 					currentShape = shapeArr[nextElArr[0]]();
 					nextElArr[1] = randShape();
@@ -126,11 +138,11 @@ let currentShape;
 					// shapeGen();
 				}
 				if (finLine.filter((el) => el.getAttribute('data-empty') === 'no').length <= 4) {
-					stopID = setTimeout(newShape, 350);
+					stopID = setTimeout(newShape, speed);
 				} else {
 					stopInterval();
 				}
-			}, 350);
+			}, speed);
 			start.style.backgroundImage = 'url(./icons/powerCircle.png)';
 		} else {
 			score = 0;
@@ -255,7 +267,7 @@ function clearCells() {
 }
 
 // let obj_Triangle = createTriangle();
-function createTriangle(x = 5, y = 2, shapeTriangle = {}) {
+function createTriangle(x = 6, y = 1, shapeTriangle = {}) {
 	shapeTriangle.position = 1;
 
 	shapeTriangle.startRow = document.querySelector(`[data-y="${y}"]`);
@@ -750,7 +762,7 @@ function createTriangle(x = 5, y = 2, shapeTriangle = {}) {
 	return shapeTriangle;
 }
 // let obj_L = createL();
-function createL(x = 5, y = 3, shapeL = {}) {
+function createL(x = 6, y = 3, shapeL = {}) {
 	shapeL.position = 1;
 
 	shapeL.startRow = document.querySelector(`[data-y="${y}"]`);
@@ -1275,7 +1287,7 @@ function createL(x = 5, y = 3, shapeL = {}) {
 }
 
 // let obj_L_Rev = createL_Rev();
-function createL_Rev(x = 5, y = 3, shapeL_Rev = {}) {
+function createL_Rev(x = 6, y = 3, shapeL_Rev = {}) {
 	shapeL_Rev.position = 1;
 
 	shapeL_Rev.startRow = document.querySelector(`[data-y="${y}"]`);
@@ -1798,7 +1810,7 @@ function createL_Rev(x = 5, y = 3, shapeL_Rev = {}) {
 }
 
 // let obj_Z = createZ();
-function createZ(x = 5, y = 2, shapeZ = {}) {
+function createZ(x = 6, y = 1, shapeZ = {}) {
 	shapeZ.position = 1;
 
 	shapeZ.startRow = document.querySelector(`[data-y="${y}"]`);
@@ -2099,7 +2111,7 @@ function createZ(x = 5, y = 2, shapeZ = {}) {
 }
 
 // let obj_Z_Rev = createZ_Rev();
-function createZ_Rev(x = 5, y = 2, shapeZ_Rev = {}) {
+function createZ_Rev(x = 6, y = 1, shapeZ_Rev = {}) {
 	shapeZ_Rev.position = 1;
 
 	shapeZ_Rev.startRow = document.querySelector(`[data-y="${y}"]`);
